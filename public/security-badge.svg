@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="28" fill="#9CA3AF"/>
+  <path d="M32 8C32 8 20 12 20 12C20 12 16 16 16 28C16 40 24 48 32 52C40 48 48 40 48 28C48 16 44 12 44 12C44 12 32 8 32 8Z" fill="#6B7280"/>
+  <path d="M28 32L31 35L37 29" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="58" text-anchor="middle" font-size="5" fill="#6B7280" font-family="Inter, sans-serif" font-weight="500">YOUR DONATION IS SECURED</text>
+</svg>

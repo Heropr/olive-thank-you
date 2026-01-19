@@ -7,7 +7,7 @@ function FundingSource() {
   const amount = location.state?.amount || '0'
 
   const handleSelect = () => {
-    navigate('/thank-you', { state: { amount } })
+    navigate('/recurring', { state: { amount } })
   }
 
   return (
@@ -29,9 +29,7 @@ function FundingSource() {
               <span className="option-title">Visa debit</span>
               <span className="option-subtitle">•••• 0987</span>
             </div>
-            <svg className="option-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="#AEB5B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
           <button className="funding-option" onClick={handleSelect}>
@@ -42,9 +40,7 @@ function FundingSource() {
               <span className="option-title">JP Morgan Chase</span>
               <span className="option-subtitle">Ending in 5243</span>
             </div>
-            <svg className="option-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="#AEB5B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
         </div>
 
@@ -58,9 +54,7 @@ function FundingSource() {
             <div className="option-details">
               <span className="option-title">Add Card</span>
             </div>
-            <svg className="option-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="#AEB5B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
           <button className="funding-option" onClick={handleSelect}>
@@ -70,9 +64,7 @@ function FundingSource() {
             <div className="option-details">
               <span className="option-title">Add Bank Account</span>
             </div>
-            <svg className="option-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="#AEB5B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
           <button className="funding-option" onClick={handleSelect}>
@@ -82,9 +74,7 @@ function FundingSource() {
             <div className="option-details">
               <span className="option-title">Apple Pay</span>
             </div>
-            <svg className="option-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="#AEB5B9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
         </div>
       </main>

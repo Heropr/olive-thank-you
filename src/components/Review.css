@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.review-container {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7FAFC;
+  overflow-y: auto;
+}
+
+.review-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  padding-top: 1rem;
+}
+
+/* Donation Card */
+.donation-card {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.donation-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.donation-card-label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7E8284;
+  margin-bottom: 8px;
+}
+
+.donation-card-amount {
+  display: flex;
+  align-items: flex-start;
+}
+
+.dollar-sign {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #343637;
+  margin-top: 8px;
+}
+
+.amount-value {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: #343637;
+  line-height: 1;
+}
+
+.security-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 16px;
+  width: 64px;
+  height: 64px;
+}
+
+.security-badge img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Review Details */
+.review-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7E8284;
+}
+
+.detail-value {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #343637;
+}
+
+.org-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.org-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.detail-divider {
+  width: 100%;
+  height: 1px;
+  background: #DBE0E3;
+  margin: 8px 0;
+}
+
+.total-row .detail-label,
+.total-row .detail-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #343637;
+}
+
+/* Footer */
+.review-footer {
+  padding: 16px;
+  padding-bottom: 32px;
+  background: #ffffff;
+}
+
+.privacy-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7E8284;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.privacy-link {
+  color: #E57373;
+  text-decoration: none;
+}
+
+.privacy-link:hover {
+  text-decoration: underline;
+}
+
+.donate-btn {
+  display: flex;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background: #1C494B;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.donate-btn:hover {
+  background: #163839;
+}
