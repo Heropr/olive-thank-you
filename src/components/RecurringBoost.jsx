@@ -16,6 +16,7 @@ function RecurringBoost() {
   const amount = location.state?.amount || '0'
 
   const boostAmount = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
+  const formattedBoost = parseFloat(boostAmount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
   const getOrdinalSuffix = (day) => {
     if (day > 3 && day < 21) return 'th'
@@ -155,7 +156,7 @@ function RecurringBoost() {
           </div>
           <div className="divider"></div>
           <div className="boost-toggle-row">
-            <span className="boost-label">Add a ${boostAmount} boost</span>
+            <span className="boost-label">Add a ${formattedBoost} boost</span>
             <label className="toggle">
               <input
                 type="checkbox"

@@ -118,6 +118,12 @@
   width: 1px;
   height: 1px;
   pointer-events: none;
+  caret-color: transparent;
+  color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  left: -9999px;
 }
 
 .keyboard-overlay {

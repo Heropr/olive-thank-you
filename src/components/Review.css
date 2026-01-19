@@ -167,7 +167,6 @@
 /* Footer */
 .review-footer {
   padding: 16px;
-  padding-bottom: 4px;
 }
 
 .privacy-text {
@@ -181,6 +180,8 @@
   line-height: 140%;
   margin: 0 auto;
   margin-top: 16px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .privacy-link {

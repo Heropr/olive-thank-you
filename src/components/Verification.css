@@ -68,6 +68,7 @@
   color: #343637;
   text-align: center;
   box-sizing: border-box;
+  caret-color: transparent;
 }
 
 .code-input::placeholder {
