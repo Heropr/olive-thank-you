@@ -55,7 +55,7 @@ function RecurringBoost() {
   }
 
   const handleContinue = () => {
-    navigate('/review', { state: { amount, frequencyText: getFrequencyText() } })
+    navigate('/review', { state: { amount, frequencyText: getFrequencyText(), includeBoost: isBoost } })
   }
 
   return (

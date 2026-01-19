@@ -6,8 +6,11 @@ function Review() {
   const location = useLocation()
   const amount = location.state?.amount || '150'
   const frequencyText = location.state?.frequencyText || 'One Time'
+  const includeBoost = location.state?.includeBoost || false
   const transferFee = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
-  const total = (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
+  const total = includeBoost
+    ? (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
+    : parseFloat(amount).toFixed(2)
 
   const formatAmount = (value) => {
     const num = parseFloat(value)
@@ -39,10 +42,12 @@ function Review() {
             <span className="detail-label">Donation Amount</span>
             <span className="detail-value">${parseInt(amount).toLocaleString('en-US')}</span>
           </div>
-          <div className="detail-row">
-            <span className="detail-label">Boost (transfer fee)</span>
-            <span className="detail-value">${formatAmount(transferFee)}</span>
-          </div>
+          {includeBoost && (
+            <div className="detail-row">
+              <span className="detail-label">Boost (transfer fee)</span>
+              <span className="detail-value">${formatAmount(transferFee)}</span>
+            </div>
+          )}
           <div className="detail-row">
             <span className="detail-label">For</span>
             <span className="detail-value">General</span>
