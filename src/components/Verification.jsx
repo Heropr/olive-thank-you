@@ -51,7 +51,7 @@ function Verification() {
     if (newCode.every(d => d !== '') && newCode.join('').length === 6) {
       // Navigate to thank you after a brief delay
       setTimeout(() => {
-        navigate('/thank-you', { state: { amount } })
+        navigate('/funding-source', { state: { amount } })
       }, 300)
     }
   }
@@ -80,7 +80,7 @@ function Verification() {
         inputRefs.current[5]?.focus()
         // All digits entered, navigate
         setTimeout(() => {
-          navigate('/thank-you', { state: { amount } })
+          navigate('/funding-source', { state: { amount } })
         }, 300)
       }
     }
@@ -136,13 +136,6 @@ function Verification() {
           )}
         </div>
 
-        <div className="verification-summary">
-          <span className="summary-text">You are giving ${amount} to</span>
-          <div className="summary-org">
-            <img src="/merchant-logo.png" alt="One Life Center" className="summary-org-icon" />
-            <span className="summary-org-name">One Life Center</span>
-          </div>
-        </div>
       </main>
     </div>
   )

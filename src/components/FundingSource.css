@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.funding-container {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+.funding-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  padding-top: 1rem;
+}
+
+.funding-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.funding-amount {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #343637;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.funding-question {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #343637;
+  text-align: center;
+  margin: 0;
+}
+
+.funding-section {
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #7E8284;
+  margin: 0;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.funding-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background-color: #F7FAFC;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.funding-option:last-child {
+  margin-bottom: 0;
+}
+
+.funding-option:active {
+  background-color: #EDF2F7;
+}
+
+.option-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.option-icon.card-icon {
+  background-color: #1C494B;
+}
+
+.option-icon.bank-icon {
+  background-color: #1C494B;
+}
+
+.option-icon.apple-icon {
+  background-color: #1A1A1A;
+}
+
+.option-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 12px;
+}
+
+.option-title {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #343637;
+}
+
+.option-subtitle {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #7E8284;
+}
+
+.option-chevron {
+  flex-shrink: 0;
+  margin-left: 12px;
+}
