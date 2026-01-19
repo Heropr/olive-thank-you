@@ -49,24 +49,26 @@
 }
 
 .section-label {
+  align-self: stretch;
+  color: #7E8284;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 14px;
+  font-style: normal;
   font-weight: 600;
-  line-height: 1.4;
-  color: #7E8284;
+  line-height: 18px;
   margin: 0;
   margin-bottom: 12px;
-  padding-left: 4px;
 }
 
 .funding-option {
   display: flex;
-  align-items: center;
-  width: 100%;
+  width: 350px;
   padding: 16px;
-  background-color: #F7FAFC;
+  align-items: center;
+  gap: 16px;
+  border-radius: 24px;
+  background: #F7FAFC;
   border: none;
-  border-radius: 16px;
   cursor: pointer;
   margin-bottom: 12px;
   transition: background-color 0.2s ease;
@@ -81,25 +83,27 @@
 }
 
 .option-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
   display: flex;
-  align-items: center;
+  padding: 8px;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 14px;
+  background: #1C494B;
   flex-shrink: 0;
 }
 
-.option-icon.card-icon {
-  background-color: #1C494B;
-}
-
-.option-icon.bank-icon {
-  background-color: #1C494B;
+.option-icon.chase-icon {
+  background: #126BC5;
 }
 
 .option-icon.apple-icon {
-  background-color: #1A1A1A;
+  background: #1A1A1A;
+}
+
+.option-icon img {
+  width: 24px;
+  height: 24px;
 }
 
 .option-details {
@@ -107,26 +111,28 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 12px;
 }
 
 .option-title {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
   color: #343637;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: left;
 }
 
 .option-subtitle {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
   color: #7E8284;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
 }
 
 .option-chevron {
   flex-shrink: 0;
-  margin-left: 12px;
 }
