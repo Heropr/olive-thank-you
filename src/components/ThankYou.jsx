@@ -1,8 +1,13 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import confetti from 'canvas-confetti'
 import './ThankYou.css'
 
-function ThankYou({ amount = "152.40" }) {
+function ThankYou() {
+  const location = useLocation()
+  const rawAmount = location.state?.amount || "152.40"
+  const formattedAmount = rawAmount.includes('.') ? rawAmount : `${rawAmount}.00`
+
   useEffect(() => {
     const end = Date.now() + 3 * 1000 // 3 seconds
     const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]
@@ -51,7 +56,7 @@ function ThankYou({ amount = "152.40" }) {
         </div>
 
         <h2 className="donation-amount">
-          ${amount}
+          ${formattedAmount}
           <br />
           donation!
         </h2>

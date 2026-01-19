@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.donation-container {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.donation-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  padding-top: 1rem;
+}
+
+.donation-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Recipient Badge */
+.recipient-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 40px;
+}
+
+.recipient-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: #7E8284;
+  text-align: center;
+}
+
+.recipient-org {
+  display: flex;
+  padding: 6px 8px 6px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: #F3F4F6;
+  border-radius: 12px;
+}
+
+.org-icon-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.org-name {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  color: #343637;
+  text-align: center;
+}
+
+/* Amount Display */
+.amount-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.amount-input {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.currency {
+  display: flex;
+  width: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  color: #343637;
+  padding-top: 10px;
+}
+
+.amount-value {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #DBE0E3;
+  text-align: center;
+}
+
+.amount-value.typed {
+  color: #343637;
+}
+
+.amount-hidden-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.keyboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+.cursor {
+  width: 2px;
+  height: 48px;
+  background-color: #0D9488;
+  margin-left: 2px;
+  align-self: center;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.amount-label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: #7E8284;
+  text-align: center;
+}
+
+/* Category Select */
+.category-select {
+  display: flex;
+  width: 278px;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 16px;
+  border: 1px solid #DBE0E3;
+  background: #FFF;
+  margin-bottom: 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.category-label {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  color: #343637;
+}
+
+.category-dropdown {
+  flex: 1;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  color: #AEB5B9;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.category-dropdown:focus {
+  outline: none;
+}
+
+.category-dropdown.selected {
+  color: #343637;
+}
+
+.category-dropdown option:not([value=""]) {
+  color: #343637;
+}
+
+.dropdown-icon {
+  pointer-events: none;
+}
+
+/* Preset Amounts */
+.preset-amounts {
+  display: flex;
+  width: 350px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.preset-btn {
+  display: flex;
+  width: 111.333px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  color: #343637;
+  background-color: #ffffff;
+  border: 1px solid #DBE0E3;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  border-color: #0D9488;
+}
+
+/* Continue Button */
+
+.continue-btn {
+  display: flex;
+  width: 350px;
+  padding: 20px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background: #1C494B;
+  opacity: 0.2;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+
+.continue-btn.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.continue-btn.active:hover {
+  background: #163839;
+}
+
+/* Responsive */
+@media (max-height: 700px) {
+  .amount-value {
+    font-size: 56px;
+  }
+
+  .currency {
+    font-size: 36px;
+  }
+
+  .cursor {
+    height: 48px;
+  }
+
+  .key {
+    height: 48px;
+    font-size: 20px;
+  }
+}

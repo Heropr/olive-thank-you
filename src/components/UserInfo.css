@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.userinfo-container {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.userinfo-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  padding-top: 1rem;
+}
+
+.userinfo-header {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 38px;
+}
+
+.userinfo-title {
+  width: 358px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  color: #343637;
+  text-align: center;
+  margin: 0;
+}
+
+.userinfo-subtitle {
+  width: 358px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  color: #7E8284;
+  text-align: center;
+  margin: 0;
+}
+
+.userinfo-form {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.userinfo-input {
+  display: flex;
+  height: 56px;
+  padding: 19px 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 16px;
+  background: #F7FAFC;
+  border: none;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #343637;
+  box-sizing: border-box;
+}
+
+.userinfo-input::placeholder {
+  flex: 1 0 0;
+  color: #7E8284;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.userinfo-input:focus {
+  outline: none;
+  border: 2px solid #1C494B;
+}
+
+.userinfo-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.summary-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 140%;
+  color: #7E8284;
+}
+
+.summary-org {
+  display: flex;
+  padding: 6px 8px 6px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: #F3F4F6;
+  border-radius: 12px;
+}
+
+.summary-org-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.summary-org-name {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  color: #343637;
+}
+
+/* Sticky CTA */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background: linear-gradient(to top, #ffffff 80%, transparent);
+  transition: bottom 0.1s ease-out;
+}
+
+.continue-btn {
+  display: flex;
+  width: 350px;
+  padding: 20px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background: #1C494B;
+  opacity: 0.2;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+
+.continue-btn.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.continue-btn.active:hover {
+  background: #163839;
+}

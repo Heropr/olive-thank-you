@@ -1,0 +1,75 @@
+.ios-keyboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #D1D5DB;
+  padding: 8px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.ios-keyboard-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.ios-keyboard-row:last-child {
+  margin-bottom: 0;
+}
+
+.ios-key {
+  flex: 1;
+  height: 46px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1A1A1A;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  transition: background-color 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.ios-key:active {
+  background-color: #E5E7EB;
+}
+
+.ios-key.empty {
+  background-color: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.ios-key.backspace {
+  background-color: #AEB5B9;
+}
+
+.ios-key.backspace:active {
+  background-color: #9CA3AF;
+}
+
+/* Only show on desktop/web */
+@media (hover: none) and (pointer: coarse) {
+  .ios-keyboard {
+    display: none;
+  }
+}
