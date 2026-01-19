@@ -168,7 +168,7 @@ function DonationAmount() {
             {presetAmounts.map((preset) => (
               <button
                 key={preset}
-                className="preset-btn"
+                className={`preset-btn ${hasTyped && amount === preset ? 'active' : ''}`}
                 onClick={() => handlePresetClick(preset)}
               >
                 ${preset}

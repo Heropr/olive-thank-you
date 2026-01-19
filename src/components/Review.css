@@ -22,7 +22,7 @@
 .donation-card {
   position: relative;
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 60px;
 }
 
 .donation-card-inner {
@@ -61,7 +61,7 @@
   font-size: 24px;
   font-weight: 600;
   color: #343637;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .amount-value {
@@ -105,7 +105,7 @@
   align-items: flex-start;
   gap: 12px;
   margin-top: auto;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   align-self: center;
 }
 
@@ -167,7 +167,7 @@
 /* Footer */
 .review-footer {
   padding: 16px;
-  padding-bottom: 32px;
+  padding-bottom: 4px;
 }
 
 .privacy-text {

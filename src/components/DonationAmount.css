@@ -246,6 +246,11 @@
   border-color: #0D9488;
 }
 
+.preset-btn.active {
+  border-color: #0D9488;
+  background-color: #F0FDFA;
+}
+
 /* Continue Button */
 
 .continue-btn {
