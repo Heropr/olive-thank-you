@@ -194,6 +194,8 @@
   align-items: center;
   gap: 4px;
   align-self: stretch;
+  padding: 12px 0;
+  cursor: pointer;
 }
 
 .dropdown-row:first-child {
@@ -229,7 +231,8 @@
   border: none;
   cursor: pointer;
   appearance: none;
-  padding: 0;
+  padding: 8px 0;
+  min-height: 44px;
 }
 
 .dropdown-select:focus {
