@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import confetti from 'canvas-confetti'
 import './ThankYou.css'
 
 function ThankYou() {
   const location = useLocation()
+  const navigate = useNavigate()
   const rawAmount = location.state?.amount || "152.40"
   const formattedAmount = rawAmount.includes('.') ? rawAmount : `${rawAmount}.00`
 
@@ -47,7 +48,7 @@ function ThankYou() {
           your
         </h1>
 
-        <div className="praying-hands">
+        <div className="praying-hands" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <img
             src="/praying-hands.png"
             alt="Praying hands"
