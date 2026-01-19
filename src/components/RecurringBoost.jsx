@@ -42,8 +42,19 @@ function RecurringBoost() {
     }
   }
 
+  const getFrequencyText = () => {
+    if (!isRecurring) return 'One Time'
+    if (frequency === 'Monthly') {
+      if (lastDayOfMonth) {
+        return 'Monthly on the last day'
+      }
+      return `Monthly on the ${dayOfMonth}${getOrdinalSuffix(dayOfMonth)}`
+    }
+    return `${frequency} on ${dayOfWeek}s`
+  }
+
   const handleContinue = () => {
-    navigate('/review', { state: { amount } })
+    navigate('/review', { state: { amount, frequencyText: getFrequencyText() } })
   }
 
   return (

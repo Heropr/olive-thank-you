@@ -5,6 +5,7 @@ function Review() {
   const navigate = useNavigate()
   const location = useLocation()
   const amount = location.state?.amount || '150'
+  const frequencyText = location.state?.frequencyText || 'One Time'
   const transferFee = (parseFloat(amount) * 0.016).toFixed(2)
   const total = (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
 
@@ -34,6 +35,10 @@ function Review() {
             <span className="detail-value">${amount}</span>
           </div>
           <div className="detail-row">
+            <span className="detail-label">Boost (transfer fee)</span>
+            <span className="detail-value">${transferFee}</span>
+          </div>
+          <div className="detail-row">
             <span className="detail-label">For</span>
             <span className="detail-value">General</span>
           </div>
@@ -49,8 +54,8 @@ function Review() {
             <span className="detail-value">Visa debit 0987</span>
           </div>
           <div className="detail-row">
-            <span className="detail-label">Boost (transfer fee)</span>
-            <span className="detail-value">${transferFee}</span>
+            <span className="detail-label">Frequency</span>
+            <span className="detail-value">{frequencyText}</span>
           </div>
           <div className="detail-divider"></div>
           <div className="detail-row total-row">
