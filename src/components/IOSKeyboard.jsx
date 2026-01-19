@@ -25,7 +25,7 @@ function IOSKeyboard({ onKeyPress, visible }) {
         <button className="ios-key" onClick={() => handleKey('9')}>9</button>
       </div>
       <div className="ios-keyboard-row">
-        <button className="ios-key empty"></button>
+        <button className="ios-key" onClick={() => handleKey('.')}>.</button>
         <button className="ios-key" onClick={() => handleKey('0')}>0</button>
         <button className="ios-key backspace" onClick={() => handleKey('backspace')}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

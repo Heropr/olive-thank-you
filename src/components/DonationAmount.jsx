@@ -4,6 +4,16 @@ import IOSKeyboard from './IOSKeyboard'
 import './DonationAmount.css'
 
 function DonationAmount() {
+  const formatWithCommas = (value) => {
+    if (!value) return '0'
+    if (value.includes('.')) {
+      const [whole, decimal] = value.split('.')
+      const formattedWhole = whole ? parseInt(whole).toLocaleString('en-US') : '0'
+      return `${formattedWhole}.${decimal}`
+    }
+    return parseInt(value).toLocaleString('en-US')
+  }
+
   const [amount, setAmount] = useState('')
   const [hasTyped, setHasTyped] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -26,7 +36,17 @@ function DonationAmount() {
   }, [])
 
   const handleAmountChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, '')
+    let value = e.target.value.replace(/[^0-9.]/g, '')
+    // Only allow one decimal point
+    const decimalCount = (value.match(/\./g) || []).length
+    if (decimalCount > 1) {
+      value = value.replace(/\.(?=.*\.)/g, '')
+    }
+    // Limit to 2 decimal places
+    if (value.includes('.')) {
+      const [whole, decimal] = value.split('.')
+      value = `${whole}.${decimal.slice(0, 2)}`
+    }
     if (!hasTyped && value) {
       setHasTyped(true)
     }
@@ -45,13 +65,28 @@ function DonationAmount() {
         }
         return newAmount
       })
+    } else if (key === '.') {
+      if (!hasTyped) {
+        setHasTyped(true)
+        setAmount('0.')
+      } else {
+        setAmount(prev => {
+          if (prev.includes('.')) return prev
+          return prev + '.'
+        })
+      }
     } else {
       if (!hasTyped) {
         setHasTyped(true)
         setAmount(key)
       } else {
         setAmount(prev => {
-          if (prev.length >= 6) return prev
+          // Limit decimal places to 2
+          if (prev.includes('.')) {
+            const [whole, decimal] = prev.split('.')
+            if (decimal.length >= 2) return prev
+          }
+          if (prev.length >= 9) return prev
           return prev + key
         })
       }
@@ -75,12 +110,12 @@ function DonationAmount() {
   const finalAmount = hasTyped ? amount : suggestedAmount
 
   const handleContinue = () => {
-    if (finalAmount && parseInt(finalAmount) > 0) {
+    if (finalAmount && parseFloat(finalAmount) > 0) {
       navigate('/user-info', { state: { amount: finalAmount } })
     }
   }
 
-  const isValidAmount = hasTyped && finalAmount && parseInt(finalAmount) > 0 && selectedCategory
+  const isValidAmount = hasTyped && finalAmount && parseFloat(finalAmount) > 0 && selectedCategory
 
   return (
     <div className="donation-container">
@@ -98,13 +133,13 @@ function DonationAmount() {
             <div className="amount-input">
               <span className="currency">$</span>
               {!hasTyped && <span className="cursor"></span>}
-              <span className={`amount-value ${hasTyped ? 'typed' : ''}`}>{displayAmount || '0'}</span>
+              <span className={`amount-value ${hasTyped ? 'typed' : ''}`}>{formatWithCommas(displayAmount)}</span>
               {hasTyped && <span className="cursor"></span>}
               <input
                 ref={inputRef}
-                type="number"
-                inputMode="numeric"
-                pattern="[0-9]*"
+                type="text"
+                inputMode="decimal"
+                pattern="[0-9]*\.?[0-9]*"
                 value={amount}
                 onChange={handleAmountChange}
                 className="amount-hidden-input"

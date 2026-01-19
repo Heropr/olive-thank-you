@@ -98,17 +98,17 @@
   padding-top: 10px;
 }
 
-.amount-value {
+.donation-container .amount-value {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 54px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  color: #DBE0E3;
+  color: #AEB5B9;
   text-align: center;
 }
 
-.amount-value.typed {
+.donation-container .amount-value.typed {
   color: #343637;
 }
 
@@ -278,7 +278,7 @@
 
 /* Responsive */
 @media (max-height: 700px) {
-  .amount-value {
+  .donation-container .amount-value {
     font-size: 56px;
   }
 

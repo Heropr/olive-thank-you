@@ -9,6 +9,11 @@ function Review() {
   const transferFee = (parseFloat(amount) * 0.016).toFixed(2)
   const total = (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
 
+  const formatAmount = (value) => {
+    const num = parseFloat(value)
+    return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  }
+
   const handleDonate = () => {
     navigate('/thank-you', { state: { amount: total } })
   }
@@ -21,7 +26,7 @@ function Review() {
             <span className="donation-card-label">You are donating</span>
             <div className="donation-card-amount">
               <span className="dollar-sign">$</span>
-              <span className="amount-value">{total}</span>
+              <span className="amount-value">{formatAmount(total)}</span>
             </div>
           </div>
           <div className="security-badge">
@@ -32,11 +37,11 @@ function Review() {
         <div className="review-details">
           <div className="detail-row">
             <span className="detail-label">Donation Amount</span>
-            <span className="detail-value">${amount}</span>
+            <span className="detail-value">${parseInt(amount).toLocaleString('en-US')}</span>
           </div>
           <div className="detail-row">
             <span className="detail-label">Boost (transfer fee)</span>
-            <span className="detail-value">${transferFee}</span>
+            <span className="detail-value">${formatAmount(transferFee)}</span>
           </div>
           <div className="detail-row">
             <span className="detail-label">For</span>
@@ -60,7 +65,7 @@ function Review() {
           <div className="detail-divider"></div>
           <div className="detail-row total-row">
             <span className="detail-label">Total</span>
-            <span className="detail-value">${total}</span>
+            <span className="detail-value">${formatAmount(total)}</span>
           </div>
         </div>
       </main>

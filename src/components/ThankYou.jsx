@@ -7,7 +7,7 @@ function ThankYou() {
   const location = useLocation()
   const navigate = useNavigate()
   const rawAmount = location.state?.amount || "152.40"
-  const formattedAmount = rawAmount.includes('.') ? rawAmount : `${rawAmount}.00`
+  const formattedAmount = parseFloat(rawAmount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
   useEffect(() => {
     const end = Date.now() + 3 * 1000 // 3 seconds
