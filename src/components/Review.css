@@ -171,18 +171,25 @@
 }
 
 .privacy-text {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #7E8284;
+  width: 316px;
+  color: var(--UI-Grey-04, #AEB5B9);
   text-align: center;
-  line-height: 1.5;
-  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin: 0 auto;
   margin-top: 16px;
 }
 
 .privacy-link {
-  color: #E57373;
+  color: var(--Primary-Olive-Orange, #FF531D);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
   text-decoration: none;
 }
 
