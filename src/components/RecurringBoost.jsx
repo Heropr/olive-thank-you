@@ -84,62 +84,58 @@ function RecurringBoost() {
 
           {showRecurringOptions && (
             <div className={`recurring-options ${isClosing ? 'closing' : ''}`}>
-              <div className="dropdown-row">
-                <div className="dropdown-text">
-                  <span className="dropdown-label">When:</span>
+              <label className="dropdown-row">
+                <span className="dropdown-label">When:</span>
+                <select
+                  value={frequency}
+                  onChange={(e) => setFrequency(e.target.value)}
+                  className="dropdown-select"
+                >
+                  <option value="Weekly">Weekly</option>
+                  <option value="Every Two Weeks">Every Two Weeks</option>
+                  <option value="Monthly">Monthly</option>
+                </select>
+                <img src="/chevron-down.svg" alt="" className="dropdown-chevron" />
+              </label>
+              <label className="dropdown-row">
+                <span className="dropdown-label">On:</span>
+                {frequency === 'Monthly' ? (
                   <select
-                    value={frequency}
-                    onChange={(e) => setFrequency(e.target.value)}
+                    value={lastDayOfMonth ? 'last' : dayOfMonth}
+                    onChange={(e) => {
+                      if (e.target.value === 'last') {
+                        setLastDayOfMonth(true)
+                      } else {
+                        setLastDayOfMonth(false)
+                        setDayOfMonth(parseInt(e.target.value))
+                      }
+                    }}
                     className="dropdown-select"
                   >
-                    <option value="Weekly">Weekly</option>
-                    <option value="Every Two Weeks">Every Two Weeks</option>
-                    <option value="Monthly">Monthly</option>
+                    <option value="last">Last day of the month</option>
+                    {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
+                      <option key={day} value={day}>
+                        {day}{getOrdinalSuffix(day)}
+                      </option>
+                    ))}
                   </select>
-                </div>
+                ) : (
+                  <select
+                    value={dayOfWeek}
+                    onChange={(e) => setDayOfWeek(e.target.value)}
+                    className="dropdown-select"
+                  >
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select>
+                )}
                 <img src="/chevron-down.svg" alt="" className="dropdown-chevron" />
-              </div>
-              <div className="dropdown-row">
-                <div className="dropdown-text">
-                  <span className="dropdown-label">On:</span>
-                  {frequency === 'Monthly' ? (
-                    <select
-                      value={lastDayOfMonth ? 'last' : dayOfMonth}
-                      onChange={(e) => {
-                        if (e.target.value === 'last') {
-                          setLastDayOfMonth(true)
-                        } else {
-                          setLastDayOfMonth(false)
-                          setDayOfMonth(parseInt(e.target.value))
-                        }
-                      }}
-                      className="dropdown-select"
-                    >
-                      <option value="last">Last day of the month</option>
-                      {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
-                        <option key={day} value={day}>
-                          {day}{getOrdinalSuffix(day)}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <select
-                      value={dayOfWeek}
-                      onChange={(e) => setDayOfWeek(e.target.value)}
-                      className="dropdown-select"
-                    >
-                      <option value="Sunday">Sunday</option>
-                      <option value="Monday">Monday</option>
-                      <option value="Tuesday">Tuesday</option>
-                      <option value="Wednesday">Wednesday</option>
-                      <option value="Thursday">Thursday</option>
-                      <option value="Friday">Friday</option>
-                      <option value="Saturday">Saturday</option>
-                    </select>
-                  )}
-                </div>
-                <img src="/chevron-down.svg" alt="" className="dropdown-chevron" />
-              </div>
+              </label>
             </div>
           )}
         </div>
