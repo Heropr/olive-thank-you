@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .review-container {
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #F7FAFC;
@@ -20,26 +21,34 @@
 /* Donation Card */
 .donation-card {
   position: relative;
+  margin-top: 70px;
   margin-bottom: 24px;
 }
 
 .donation-card-inner {
   display: flex;
+  width: 270px;
+  padding: 64px 16px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  gap: -2px;
+  align-self: stretch;
+  border-radius: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: var(--Primary-White, #FFF);
+  box-shadow: 0 1px 55px 0 rgba(0, 0, 0, 0.10);
+  margin: 0 auto;
 }
 
 .donation-card-label {
+  align-self: stretch;
+  color: var(--UI-Grey-03, #7E8284);
+  text-align: center;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 500;
-  color: #7E8284;
-  margin-bottom: 8px;
+  line-height: 140%;
 }
 
 .donation-card-amount {
@@ -56,19 +65,31 @@
 }
 
 .amount-value {
+  color: var(--UI-Grey-01, #343637);
+  text-align: center;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 56px;
+  font-size: 46px;
+  font-style: normal;
   font-weight: 600;
-  color: #343637;
-  line-height: 1;
+  line-height: normal;
 }
 
 .security-badge {
   position: absolute;
-  bottom: -20px;
-  left: 16px;
-  width: 64px;
-  height: 64px;
+  bottom: -35px;
+  left: 1px;
+  width: 101px;
+  height: 101px;
+  animation: rotate-stamp 20s linear infinite;
+}
+
+@keyframes rotate-stamp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .security-badge img {
@@ -79,29 +100,41 @@
 /* Review Details */
 .review-details {
   display: flex;
+  width: 350px;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: auto;
+  margin-bottom: 32px;
+  align-self: center;
 }
 
 .detail-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .detail-label {
+  flex: 1 0 0;
+  color: var(--UI-Grey-03, #7E8284);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 500;
-  color: #7E8284;
+  line-height: 18px;
 }
 
 .detail-value {
+  color: var(--UI-Grey-01, #343637);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #343637;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .org-value {
@@ -135,7 +168,6 @@
 .review-footer {
   padding: 16px;
   padding-bottom: 32px;
-  background: #ffffff;
 }
 
 .privacy-text {
@@ -146,7 +178,7 @@
   text-align: center;
   line-height: 1.5;
   margin: 0;
-  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .privacy-link {

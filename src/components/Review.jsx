@@ -24,7 +24,7 @@ function Review() {
             </div>
           </div>
           <div className="security-badge">
-            <img src="/security-badge.svg" alt="Secured" />
+            <img src="/transaction-secured.svg" alt="Transaction Secured" />
           </div>
         </div>
 
@@ -49,7 +49,7 @@ function Review() {
             <span className="detail-value">Visa debit 0987</span>
           </div>
           <div className="detail-row">
-            <span className="detail-label">Transfer Fee</span>
+            <span className="detail-label">Boost (transfer fee)</span>
             <span className="detail-value">${transferFee}</span>
           </div>
           <div className="detail-divider"></div>
@@ -61,12 +61,12 @@ function Review() {
       </main>
 
       <div className="review-footer">
-        <p className="privacy-text">
-          By tapping donate you agree to our <a href="#" className="privacy-link">Privacy Policy</a>. This donation is being processed by Olive Payments Inc.
-        </p>
         <button className="donate-btn" onClick={handleDonate}>
           Donate
         </button>
+        <p className="privacy-text">
+          By tapping donate you agree to our <a href="#" className="privacy-link">Privacy Policy</a>. This donation is being processed by Olive Payments Inc.
+        </p>
       </div>
     </div>
   )
