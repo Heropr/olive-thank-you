@@ -6,7 +6,7 @@ function Review() {
   const location = useLocation()
   const amount = location.state?.amount || '150'
   const frequencyText = location.state?.frequencyText || 'One Time'
-  const transferFee = (parseFloat(amount) * 0.016).toFixed(2)
+  const transferFee = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
   const total = (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
 
   const formatAmount = (value) => {

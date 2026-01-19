@@ -15,7 +15,7 @@ function RecurringBoost() {
   const location = useLocation()
   const amount = location.state?.amount || '0'
 
-  const boostAmount = (parseFloat(amount) * 0.016).toFixed(2)
+  const boostAmount = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
 
   const getOrdinalSuffix = (day) => {
     if (day > 3 && day < 21) return 'th'
