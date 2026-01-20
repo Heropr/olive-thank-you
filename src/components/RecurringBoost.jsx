@@ -61,7 +61,10 @@ function RecurringBoost() {
   return (
     <div className="recurring-container">
       <main className="recurring-content">
-        <h1 className="recurring-title">Make your donation recurring.</h1>
+        <div className="recurring-header">
+          <h1 className="recurring-title">Maximize your impact</h1>
+          <p className="recurring-subtitle">These options help your donation go further</p>
+        </div>
 
         <div className={`option-card ${showRecurringOptions ? 'expanded' : ''}`}>
           <div className="option-card-header">

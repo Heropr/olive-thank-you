@@ -14,8 +14,8 @@ function FundingSource() {
     <div className="funding-container">
       <main className="funding-content">
         <div className="funding-header">
-          <h1 className="funding-amount">${amount}</h1>
-          <p className="funding-question">How do you want to fund this donation?</p>
+          <h1 className="funding-title">How do you want to fund your donation?</h1>
+          <p className="funding-subtitle">You are donating ${amount}</p>
         </div>
 
         <div className="funding-section">

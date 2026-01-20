@@ -17,14 +17,37 @@
   padding-top: 1rem;
 }
 
+.recurring-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  margin-bottom: 48px;
+}
+
 .recurring-title {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.3;
+  align-self: stretch;
   color: #343637;
+  text-align: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
   margin: 0;
-  margin-bottom: 24px;
+}
+
+.recurring-subtitle {
+  align-self: stretch;
+  color: #7E8284;
+  text-align: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
 }
 
 .option-card {
