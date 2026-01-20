@@ -270,10 +270,12 @@
 }
 
 .boost-label {
+  color: var(--UI-Grey-01, #343637);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 14px;
+  font-style: normal;
   font-weight: 600;
-  color: #1C494B;
+  line-height: 18px;
 }
 
 /* Footer */
