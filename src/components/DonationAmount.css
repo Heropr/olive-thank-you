@@ -248,13 +248,16 @@
   transition: all 0.2s ease;
 }
 
-.preset-btn:hover {
-  border-color: #0D9488;
+@media (hover: hover) {
+  .preset-btn:hover {
+    border-color: #1C494B;
+  }
 }
 
-.preset-btn.active {
-  border-color: #0D9488;
-  background-color: #F0FDFA;
+.preset-btn:active {
+  background-color: #1C494B;
+  color: #ffffff;
+  border-color: #1C494B;
 }
 
 /* Continue Button */

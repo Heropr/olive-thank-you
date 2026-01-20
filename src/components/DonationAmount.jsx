@@ -22,7 +22,7 @@ function DonationAmount() {
   const inputRef = useRef(null)
   const navigate = useNavigate()
 
-  const suggestedAmount = '100'
+  const suggestedAmount = '0'
   const presetAmounts = ['50', '100', '500']
 
   useEffect(() => {
@@ -168,7 +168,7 @@ function DonationAmount() {
             {presetAmounts.map((preset) => (
               <button
                 key={preset}
-                className={`preset-btn ${hasTyped && amount === preset ? 'active' : ''}`}
+                className="preset-btn"
                 onClick={() => handlePresetClick(preset)}
               >
                 ${preset}
