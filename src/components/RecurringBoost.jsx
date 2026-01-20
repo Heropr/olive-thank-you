@@ -86,6 +86,7 @@ function RecurringBoost() {
             <div className={`recurring-options ${isClosing ? 'closing' : ''}`}>
               <label className="dropdown-row">
                 <span className="dropdown-label">When:</span>
+                <span className="dropdown-value">{frequency}</span>
                 <select
                   value={frequency}
                   onChange={(e) => setFrequency(e.target.value)}
@@ -99,6 +100,11 @@ function RecurringBoost() {
               </label>
               <label className="dropdown-row">
                 <span className="dropdown-label">On:</span>
+                <span className="dropdown-value">
+                  {frequency === 'Monthly'
+                    ? (lastDayOfMonth ? 'Last day of the month' : `${dayOfMonth}${getOrdinalSuffix(dayOfMonth)}`)
+                    : dayOfWeek}
+                </span>
                 {frequency === 'Monthly' ? (
                   <select
                     value={lastDayOfMonth ? 'last' : dayOfMonth}
