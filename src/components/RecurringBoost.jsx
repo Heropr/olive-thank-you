@@ -14,6 +14,7 @@ function RecurringBoost() {
   const navigate = useNavigate()
   const location = useLocation()
   const amount = location.state?.amount || '0'
+  const fundingSource = location.state?.fundingSource || 'Visa debit 0987'
 
   const boostAmount = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
   const formattedBoost = parseFloat(boostAmount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
@@ -55,7 +56,7 @@ function RecurringBoost() {
   }
 
   const handleContinue = () => {
-    navigate('/review', { state: { amount, frequencyText: getFrequencyText(), includeBoost: isBoost } })
+    navigate('/review', { state: { amount, frequencyText: getFrequencyText(), includeBoost: isBoost, fundingSource } })
   }
 
   return (

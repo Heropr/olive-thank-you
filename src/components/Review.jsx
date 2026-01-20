@@ -7,6 +7,7 @@ function Review() {
   const amount = location.state?.amount || '150'
   const frequencyText = location.state?.frequencyText || 'One Time'
   const includeBoost = location.state?.includeBoost || false
+  const fundingSource = location.state?.fundingSource || 'Visa debit 0987'
   const transferFee = (parseFloat(amount) * 0.022 + 0.30).toFixed(2)
   const total = includeBoost
     ? (parseFloat(amount) + parseFloat(transferFee)).toFixed(2)
@@ -61,7 +62,7 @@ function Review() {
           </div>
           <div className="detail-row">
             <span className="detail-label">From</span>
-            <span className="detail-value">Visa debit 0987</span>
+            <span className="detail-value">{fundingSource}</span>
           </div>
           <div className="detail-row">
             <span className="detail-label">Frequency</span>

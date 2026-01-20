@@ -6,8 +6,8 @@ function FundingSource() {
   const location = useLocation()
   const amount = location.state?.amount || '0'
 
-  const handleSelect = () => {
-    navigate('/recurring', { state: { amount } })
+  const handleSelect = (fundingSource) => {
+    navigate('/recurring', { state: { amount, fundingSource } })
   }
 
   return (
@@ -21,7 +21,7 @@ function FundingSource() {
         <div className="funding-section">
           <h2 className="section-label">Saved</h2>
 
-          <button className="funding-option" onClick={handleSelect}>
+          <button className="funding-option" onClick={() => handleSelect('Visa debit 0987')}>
             <div className="option-icon chase-icon">
               <img src="/chase-logo.svg" alt="Chase" />
             </div>
@@ -32,7 +32,7 @@ function FundingSource() {
             <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
-          <button className="funding-option" onClick={handleSelect}>
+          <button className="funding-option" onClick={() => handleSelect('JP Morgan Chase 5243')}>
             <div className="option-icon chase-icon">
               <img src="/chase-logo.svg" alt="Chase" />
             </div>
@@ -47,7 +47,7 @@ function FundingSource() {
         <div className="funding-section">
           <h2 className="section-label">Other</h2>
 
-          <button className="funding-option" onClick={handleSelect}>
+          <button className="funding-option" onClick={() => handleSelect('New Card')}>
             <div className="option-icon">
               <img src="/card-icon.svg" alt="Card" />
             </div>
@@ -57,7 +57,7 @@ function FundingSource() {
             <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
-          <button className="funding-option" onClick={handleSelect}>
+          <button className="funding-option" onClick={() => handleSelect('New Bank Account')}>
             <div className="option-icon">
               <img src="/bank-icon.svg" alt="Bank" />
             </div>
@@ -67,7 +67,7 @@ function FundingSource() {
             <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
-          <button className="funding-option" onClick={handleSelect}>
+          <button className="funding-option" onClick={() => handleSelect('Apple Pay')}>
             <div className="option-icon apple-icon">
               <img src="/apple-icon.svg" alt="Apple Pay" />
             </div>
