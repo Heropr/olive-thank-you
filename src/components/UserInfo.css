@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  padding-top: 1rem;
+  padding-top: 32px;
 }
 
 .userinfo-header {
@@ -27,26 +27,28 @@
 }
 
 .userinfo-title {
-  width: 358px;
+  align-self: stretch;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
-  color: #343637;
-  text-align: center;
+  line-height: 32px;
+  letter-spacing: 0.84px;
+  color: var(--Olive-UI-Grey-1, #343637);
+  text-align: left;
   margin: 0;
 }
 
 .userinfo-subtitle {
-  width: 358px;
+  align-self: stretch;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
-  color: #7E8284;
-  text-align: center;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  color: var(--Olive-UI-Grey-3, #7E8284);
+  text-align: left;
   margin: 0;
 }
 
@@ -72,7 +74,7 @@
   background: #F7FAFC;
   border: none;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #343637;
   box-sizing: border-box;
@@ -82,7 +84,7 @@
   flex: 1 0 0;
   color: #7E8284;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -160,7 +162,7 @@
   background: #1C494B;
   opacity: 0.2;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: #ffffff;
   border: none;

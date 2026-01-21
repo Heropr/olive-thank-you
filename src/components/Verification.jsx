@@ -99,7 +99,7 @@ function Verification() {
     <div className="verification-container">
       <main className="verification-content">
         <div className="verification-header">
-          <h1 className="verification-title">Keep your giving secure</h1>
+          <h1 className="verification-title">Verify your phone</h1>
           <p className="verification-subtitle">
             We sent a text message with your verification code to {formatPhoneNumber(phoneNumber)}
           </p>

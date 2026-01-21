@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  padding-top: 1rem;
+  padding-top: 32px;
 }
 
 .recurring-header {
@@ -28,25 +28,27 @@
 
 .recurring-title {
   align-self: stretch;
-  color: #343637;
-  text-align: center;
+  color: var(--Olive-UI-Grey-1, #343637);
+  text-align: left;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 32px;
+  letter-spacing: 0.84px;
   margin: 0;
 }
 
 .recurring-subtitle {
   align-self: stretch;
-  color: #7E8284;
-  text-align: center;
+  color: var(--Olive-UI-Grey-3, #7E8284);
+  text-align: left;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 20px;
+  letter-spacing: -0.16px;
   margin: 0;
 }
 
@@ -104,7 +106,7 @@
 
 .option-card-title {
   align-self: stretch;
-  color: #343637;
+  color: var(--UI-Grey-01, #343637);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -114,9 +116,9 @@
 
 .option-card-subtitle {
   align-self: stretch;
-  color: #7E8284;
+  color: var(--UI-Grey-03, #7E8284);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
@@ -236,7 +238,7 @@
 .dropdown-label {
   color: #7E8284;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: 140%;
@@ -263,7 +265,7 @@
   flex: 1 0 0;
   color: #343637;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: 140%;
@@ -295,7 +297,7 @@
 .boost-label {
   color: var(--UI-Grey-01, #343637);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
@@ -361,7 +363,7 @@
   border-radius: 50px;
   background: #1C494B;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: #ffffff;
   border: none;
