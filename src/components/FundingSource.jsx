@@ -1,9 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import './FundingSource.css'
 
 function FundingSource() {
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const amount = location.state?.amount || '0'
 
   const handleSelect = (fundingSource) => {
@@ -11,7 +12,7 @@ function FundingSource() {
   }
 
   return (
-    <div className="funding-container">
+    <div className={`funding-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="funding-content">
         <div className="funding-header">
           <h1 className="funding-title">How do you want to fund your donation?</h1>
@@ -21,7 +22,7 @@ function FundingSource() {
         <div className="funding-section">
           <h2 className="section-label">Saved</h2>
 
-          <button className="funding-option" onClick={() => handleSelect('Visa debit 0987')}>
+          <button className="funding-option funding-option-saved" onClick={() => handleSelect('Visa debit 0987')}>
             <div className="option-icon chase-icon">
               <img src="/chase-logo.svg" alt="Chase" />
             </div>
@@ -32,7 +33,7 @@ function FundingSource() {
             <img src="/chevron-right.svg" alt="" className="option-chevron" />
           </button>
 
-          <button className="funding-option" onClick={() => handleSelect('JP Morgan Chase 5243')}>
+          <button className="funding-option funding-option-saved" onClick={() => handleSelect('JP Morgan Chase 5243')}>
             <div className="option-icon chase-icon">
               <img src="/chase-logo.svg" alt="Chase" />
             </div>
@@ -54,7 +55,7 @@ function FundingSource() {
             <div className="option-details">
               <span className="option-title">Add Card</span>
             </div>
-            <img src="/chevron-right.svg" alt="" className="option-chevron" />
+            <span className="option-add-btn">Add <img src="/add-icon.svg" alt="" /></span>
           </button>
 
           <button className="funding-option" onClick={() => handleSelect('New Bank Account')}>
@@ -64,7 +65,7 @@ function FundingSource() {
             <div className="option-details">
               <span className="option-title">Add Bank Account</span>
             </div>
-            <img src="/chevron-right.svg" alt="" className="option-chevron" />
+            <span className="option-add-btn">Add <img src="/add-icon.svg" alt="" /></span>
           </button>
 
           <button className="funding-option" onClick={() => handleSelect('Apple Pay')}>

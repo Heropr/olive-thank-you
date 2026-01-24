@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 import confetti from 'canvas-confetti'
 import './ThankYou.css'
 
 function ThankYou() {
   const location = useLocation()
   const navigate = useNavigate()
+  const navType = useNavigationType()
   const rawAmount = location.state?.amount || "152.40"
   const formattedAmount = parseFloat(rawAmount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
@@ -40,7 +41,7 @@ function ThankYou() {
   }, [])
 
   return (
-    <div className="thank-you-container">
+    <div className={`thank-you-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="thank-you-content">
         <h1 className="thank-you-heading">
           Thank You for

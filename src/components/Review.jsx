@@ -1,9 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import './Review.css'
 
 function Review() {
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const amount = location.state?.amount || '150'
   const frequencyText = location.state?.frequencyText || 'One Time'
   const includeBoost = location.state?.includeBoost || false
@@ -23,11 +24,10 @@ function Review() {
   }
 
   return (
-    <div className="review-container">
+    <div className={`review-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="review-content">
         <div className="donation-card">
           <div className="donation-card-inner">
-            <span className="donation-card-label">You are donating</span>
             <div className="donation-card-amount">
               <span className="dollar-sign">$</span>
               <span className="amount-value">{formatAmount(total)}</span>
@@ -56,8 +56,8 @@ function Review() {
           <div className="detail-row">
             <span className="detail-label">To</span>
             <div className="detail-value org-value">
-              <img src="/merchant-logo.png" alt="One Life Center" className="org-icon" />
               <span>One Life Center</span>
+              <img src="/merchant-logo.png" alt="One Life Center" className="org-icon" />
             </div>
           </div>
           <div className="detail-row">

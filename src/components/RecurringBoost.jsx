@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import './RecurringBoost.css'
 
 function RecurringBoost() {
@@ -13,6 +13,7 @@ function RecurringBoost() {
   const [lastDayOfMonth, setLastDayOfMonth] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const amount = location.state?.amount || '0'
   const fundingSource = location.state?.fundingSource || 'Visa debit 0987'
 
@@ -60,7 +61,7 @@ function RecurringBoost() {
   }
 
   return (
-    <div className="recurring-container">
+    <div className={`recurring-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="recurring-content">
         <div className="recurring-header">
           <h1 className="recurring-title">Maximize your impact</h1>

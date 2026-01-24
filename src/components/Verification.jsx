@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import './Verification.css'
 
 function Verification() {
   const [code, setCode] = useState(['', '', '', '', '', ''])
   const [countdown, setCountdown] = useState(30)
-  const [canResend, setCanResend] = useState(false)
   const inputRefs = useRef([])
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const amount = location.state?.amount || '0'
   const phoneNumber = location.state?.phoneNumber || ''
 
@@ -21,8 +21,6 @@ function Verification() {
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000)
       return () => clearTimeout(timer)
-    } else {
-      setCanResend(true)
     }
   }, [countdown])
 
@@ -87,16 +85,13 @@ function Verification() {
   }
 
   const handleResend = () => {
-    if (canResend) {
-      setCountdown(30)
-      setCanResend(false)
-      setCode(['', '', '', '', '', ''])
-      inputRefs.current[0]?.focus()
-    }
+    setCountdown(30)
+    setCode(['', '', '', '', '', ''])
+    inputRefs.current[0]?.focus()
   }
 
   return (
-    <div className="verification-container">
+    <div className={`verification-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="verification-content">
         <div className="verification-header">
           <h1 className="verification-title">Verify your phone</h1>
@@ -125,13 +120,12 @@ function Verification() {
 
         <div className="resend-section">
           <button
-            className={`resend-link ${canResend ? 'active' : ''}`}
+            className="resend-link active"
             onClick={handleResend}
-            disabled={!canResend}
           >
             Resend code
           </button>
-          {!canResend && (
+          {countdown > 0 && (
             <span className="resend-countdown">Code will resend in {countdown}sec</span>
           )}
         </div>

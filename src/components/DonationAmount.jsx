@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useNavigationType } from 'react-router-dom'
 import IOSKeyboard from './IOSKeyboard'
 import './DonationAmount.css'
 
 function DonationAmount() {
+  const navType = useNavigationType()
   const formatWithCommas = (value) => {
     if (!value) return '0'
     if (value.includes('.')) {
@@ -118,10 +119,9 @@ function DonationAmount() {
   const isValidAmount = hasTyped && finalAmount && parseFloat(finalAmount) > 0 && selectedCategory
 
   return (
-    <div className="donation-container">
+    <div className={`donation-container ${navType === 'POP' ? 'page-transition-back' : ''}`}>
       <main className="donation-content">
         <div className="recipient-badge">
-          <span className="recipient-text">You are giving to</span>
           <div className="recipient-org">
             <img src="/merchant-logo.png" alt="One Life Center" className="org-icon-img" />
             <span className="org-name">One Life Center</span>

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import './UserInfo.css'
 
 function UserInfo() {
-  const [fullName, setFullName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [keyboardHeight, setKeyboardHeight] = useState(0)
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const amount = location.state?.amount || '0'
 
   useEffect(() => {
@@ -39,12 +39,12 @@ function UserInfo() {
   }
 
   const handleContinue = () => {
-    if (fullName && phoneNumber.length >= 10) {
+    if (phoneNumber.length >= 10) {
       navigate('/verification', { state: { amount, phoneNumber } })
     }
   }
 
-  const isValid = fullName && phoneNumber.length >= 10
+  const isValid = phoneNumber.length >= 10
 
   const formatPhoneNumber = (number) => {
     if (!number) return ''
@@ -54,7 +54,7 @@ function UserInfo() {
   }
 
   return (
-    <div className="userinfo-container">
+    <div className={`userinfo-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
       <main className="userinfo-content">
         <div className="userinfo-header">
           <h1 className="userinfo-title">Keep your giving secure</h1>
@@ -62,14 +62,6 @@ function UserInfo() {
         </div>
 
         <div className="userinfo-form">
-          <input
-            type="text"
-            placeholder="Full name"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            className="userinfo-input"
-          />
-
           <input
             type="tel"
             inputMode="numeric"

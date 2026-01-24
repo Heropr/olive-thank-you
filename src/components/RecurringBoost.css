@@ -33,9 +33,9 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 26px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 32px;
-  letter-spacing: 0.84px;
+  letter-spacing: 0.78px;
   margin: 0;
 }
 
@@ -44,11 +44,11 @@
   color: var(--Olive-UI-Grey-3, #7E8284);
   text-align: left;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 20px;
-  letter-spacing: -0.16px;
+  letter-spacing: -0.14px;
   margin: 0;
 }
 
@@ -108,7 +108,7 @@
   align-self: stretch;
   color: var(--UI-Grey-01, #343637);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
