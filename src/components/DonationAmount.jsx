@@ -3,8 +3,15 @@ import { useNavigate, useNavigationType } from 'react-router-dom'
 import IOSKeyboard from './IOSKeyboard'
 import './DonationAmount.css'
 
+let hasBeenMounted = false
+
 function DonationAmount() {
   const navType = useNavigationType()
+  const isInitialLoad = !hasBeenMounted
+
+  useEffect(() => {
+    hasBeenMounted = true
+  }, [])
   const formatWithCommas = (value) => {
     if (!value) return '0'
     if (value.includes('.')) {
@@ -119,7 +126,7 @@ function DonationAmount() {
   const isValidAmount = hasTyped && finalAmount && parseFloat(finalAmount) > 0 && selectedCategory
 
   return (
-    <div className={`donation-container ${navType === 'POP' ? 'page-transition-back' : ''}`}>
+    <div className={`donation-container ${isInitialLoad ? 'page-transition-forward' : (navType === 'POP' ? 'page-transition-back' : 'page-transition-forward')}`}>
       <main className="donation-content">
         <div className="recipient-badge">
           <div className="recipient-org">

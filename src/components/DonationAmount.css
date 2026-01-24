@@ -270,7 +270,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 50px;
-  background: #1C494B;
+  background: var(--Primary-Olive-Orange, #FF531D);
   opacity: 0.2;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
@@ -287,7 +287,7 @@
 }
 
 .continue-btn.active:hover {
-  background: #163839;
+  background: var(--Primary-Olive-Orange-Hover, #e5491a);
 }
 
 /* Responsive */

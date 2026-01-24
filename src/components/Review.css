@@ -51,6 +51,17 @@
   line-height: 140%;
 }
 
+.donating-label {
+  align-self: stretch;
+  color: var(--UI-Grey-03, #7E8284);
+  text-align: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
 .donation-card-amount {
   display: flex;
   align-items: flex-start;
@@ -208,7 +219,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 50px;
-  background: #1C494B;
+  background: var(--Primary-Olive-Orange, #FF531D);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -219,5 +230,5 @@
 }
 
 .donate-btn:hover {
-  background: #163839;
+  background: var(--Primary-Olive-Orange-Hover, #e5491a);
 }

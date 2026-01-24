@@ -159,7 +159,7 @@
   align-items: center;
   gap: 4px;
   border-radius: 10px;
-  background: #1C494B;
+  background: var(--Primary-Olive-Orange, #FF531D);
   color: #FFF;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 13px;

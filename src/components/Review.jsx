@@ -28,6 +28,7 @@ function Review() {
       <main className="review-content">
         <div className="donation-card">
           <div className="donation-card-inner">
+            <span className="donating-label">You are donating</span>
             <div className="donation-card-amount">
               <span className="dollar-sign">$</span>
               <span className="amount-value">{formatAmount(total)}</span>

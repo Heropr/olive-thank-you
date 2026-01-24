@@ -108,7 +108,7 @@
 }
 
 .resend-link.active {
-  color: #0D9488;
+  color: var(--Primary-Olive-Orange, #FF531D);
   cursor: pointer;
 }
 

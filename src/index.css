@@ -70,3 +70,16 @@ a:hover {
   animation: slideInFromLeft 0.35s ease-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-transition-fade {
+  animation: fadeIn 0.4s ease-out;
+}
+

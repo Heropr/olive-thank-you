@@ -88,7 +88,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 14px;
-  background: #1C494B;
+  background: var(--Primary-Black, #1A1A1A);
   flex-shrink: 0;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .toggle input:checked + .toggle-slider {
-  background-color: #1C494B;
+  background-color: var(--Primary-Olive-Orange, #FF531D);
 }
 
 .toggle input:checked + .toggle-slider:before {
@@ -217,7 +217,7 @@
 .dropdown-row {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   align-self: stretch;
   cursor: pointer;
   position: relative;
@@ -263,6 +263,7 @@
 
 .dropdown-value {
   flex: 1 0 0;
+  text-align: right;
   color: #343637;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
@@ -361,7 +362,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 50px;
-  background: #1C494B;
+  background: var(--Primary-Olive-Orange, #FF531D);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -372,5 +373,5 @@
 }
 
 .continue-btn:hover {
-  background: #163839;
+  background: var(--Primary-Olive-Orange-Hover, #e5491a);
 }

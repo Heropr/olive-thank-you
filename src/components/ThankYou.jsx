@@ -41,7 +41,7 @@ function ThankYou() {
   }, [])
 
   return (
-    <div className={`thank-you-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-forward'}`}>
+    <div className={`thank-you-container ${navType === 'POP' ? 'page-transition-back' : 'page-transition-fade'}`}>
       <main className="thank-you-content">
         <h1 className="thank-you-heading">
           Thank You for
