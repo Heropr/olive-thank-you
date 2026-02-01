@@ -9,19 +9,21 @@
   display: flex;
   width: 280px;
   height: 100vh;
-  padding: 24px 16px 0 16px;
+  padding: 0 16px 0 16px;
   flex-direction: column;
   align-items: stretch;
-  border-right: 1px solid rgba(174, 181, 185, 0.10);
+  border-right: 1px solid var(--UI-Grey-05, #DBE0E3);
   background: var(--Primary-White, #FFF);
 }
 
 .sidebar-header {
   display: flex;
+  padding: 16px 8px 16px 24px;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 48px;
-  width: 100%;
+  gap: 48px;
+  align-self: stretch;
+  margin-left: -16px;
+  margin-right: -16px;
 }
 
 .logo {
@@ -39,15 +41,14 @@
 
 .church-selector {
   display: flex;
+  width: 248px;
   padding: 8px;
   align-items: center;
   gap: 8px;
-  align-self: stretch;
   border-radius: 16px;
-  background: var(--UI-Grey-07, #F7FAFC);
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-bottom: 24px;
+  background: var(--Primary-White, #FFF);
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
 .church-selector:hover {
@@ -55,8 +56,8 @@
 }
 
 .church-icon {
-  width: 33px;
-  height: 33px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   aspect-ratio: 1/1;
 }
@@ -64,7 +65,7 @@
 .church-icon img {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   display: block;
 }
 
@@ -84,13 +85,19 @@
 }
 
 .dropdown-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
   color: #7E8284;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
 }
 
 .nav-item {
@@ -214,10 +221,10 @@
 /* Main Content Styles */
 .dashboard-main {
   flex: 1;
-  padding: 32px 40px;
+  padding: 16px 40px;
   overflow-y: auto;
   position: relative;
-  background: #FFF;
+  background: #F7FAFC;
 }
 
 .dashboard-header {
@@ -278,7 +285,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 .stat-card {
@@ -289,8 +296,8 @@
   gap: 32px;
   flex: 1 0 0;
   border-radius: 24px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .stat-header {
@@ -404,7 +411,7 @@
 
 /* Data Tables */
 .data-table-container {
-  margin-top: 48px;
+  margin-top: 32px;
   overflow-x: auto;
 }
 
@@ -575,14 +582,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 .fund-card {
   padding: 24px;
   border-radius: 24px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .fund-header {
@@ -666,7 +673,7 @@
 
 /* Settings */
 .settings-container {
-  margin-top: 48px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -674,8 +681,9 @@
 }
 
 .settings-section {
-  background: var(--UI-Grey-07, #F7FAFC);
-  border-radius: 16px;
+  background: var(--Primary-White, #FFF);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
   padding: 24px;
 }
 
@@ -761,7 +769,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 /* Metrics Grid */
@@ -774,8 +782,8 @@
 .metric-card {
   padding: 24px;
   border-radius: 24px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
   position: relative;
 }
 
@@ -1022,9 +1030,9 @@
   align-items: flex-start;
   gap: 16px;
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -1088,9 +1096,9 @@
 /* Statements Section */
 .statements-section {
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .statements-header {
@@ -1164,7 +1172,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 /* Charts Row */
@@ -1176,9 +1184,9 @@
 
 .chart-card {
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .chart-card.chart-wide {
@@ -1377,9 +1385,9 @@
 /* Recent Transactions Card */
 .recent-transactions-card {
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .card-header {
@@ -1484,9 +1492,9 @@
 /* Text-to-Give Card */
 .text-to-give-card {
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid var(--UI-Grey-06, #EEF4F7);
-  background: var(--UI-Grey-07, #F7FAFC);
+  border-radius: 24px;
+  border: 1px solid var(--UI-Grey-05, #DBE0E3);
+  background: var(--Primary-White, #FFF);
 }
 
 .manage-btn {
