@@ -38,6 +38,671 @@ function Dashboard() {
     }
   ]
 
+  const transactions = [
+    { id: 1, donor: 'Sarah Johnson', amount: 250, fund: 'General Fund', campus: 'Downtown', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Today, 9:23 AM' },
+    { id: 2, donor: 'Michael Chen', amount: 100, fund: 'Missions', campus: 'North Campus', service: 'Sunday 11 AM', source: 'Text-to-Give', status: 'completed', date: 'Today, 9:15 AM' },
+    { id: 3, donor: 'Anonymous', amount: 500, fund: 'Building Fund', campus: 'Downtown', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Today, 9:02 AM' },
+    { id: 4, donor: 'Emily Williams', amount: 75, fund: 'Youth Ministry', campus: 'Online', service: 'Online Live', source: 'Online', status: 'completed', date: 'Yesterday, 7:45 PM' },
+    { id: 5, donor: 'David Thompson', amount: 1000, fund: 'General Fund', campus: 'Downtown', service: 'Saturday Night', source: 'Manual', status: 'pending', date: 'Yesterday, 6:30 PM' },
+    { id: 6, donor: 'Jennifer Garcia', amount: 150, fund: 'Benevolence', campus: 'North Campus', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Jan 29, 2026' },
+    { id: 7, donor: 'Robert Taylor', amount: 2500, fund: 'Building Fund', campus: 'Downtown', service: 'Sunday 11 AM', source: 'Manual', status: 'completed', date: 'Jan 28, 2026' },
+    { id: 8, donor: 'Amanda Brown', amount: 100, fund: 'General Fund', campus: 'Online', service: 'Online Live', source: 'Text-to-Give', status: 'failed', date: 'Jan 28, 2026' },
+  ]
+
+  const donors = [
+    { id: 1, name: 'Sarah Johnson', email: 'sarah.j@email.com', totalAllTime: 12500, totalThisYear: 3200, lastGift: 'Today', recurring: true, campus: 'Downtown' },
+    { id: 2, name: 'Michael Chen', email: 'mchen@email.com', totalAllTime: 8750, totalThisYear: 2100, lastGift: 'Today', recurring: true, campus: 'North Campus' },
+    { id: 3, name: 'Emily Williams', email: 'emily.w@email.com', totalAllTime: 4200, totalThisYear: 950, lastGift: 'Yesterday', recurring: false, campus: 'Online' },
+    { id: 4, name: 'David Thompson', email: 'dthompson@email.com', totalAllTime: 25000, totalThisYear: 6000, lastGift: 'Yesterday', recurring: true, campus: 'Downtown' },
+    { id: 5, name: 'Jennifer Garcia', email: 'jgarcia@email.com', totalAllTime: 3100, totalThisYear: 800, lastGift: '3 days ago', recurring: false, campus: 'North Campus' },
+    { id: 6, name: 'Robert Taylor', email: 'rtaylor@email.com', totalAllTime: 45000, totalThisYear: 12000, lastGift: 'Jan 28, 2026', recurring: true, campus: 'Downtown' },
+    { id: 7, name: 'Amanda Brown', email: 'abrown@email.com', totalAllTime: 2100, totalThisYear: 450, lastGift: 'Jan 28, 2026', recurring: false, campus: 'Online' },
+    { id: 8, name: 'Christopher Lee', email: 'clee@email.com', totalAllTime: 6850, totalThisYear: 1800, lastGift: 'Jan 27, 2026', recurring: true, campus: 'North Campus' },
+  ]
+
+  const recurringDonations = [
+    { id: 1, donor: 'Sarah Johnson', amount: 250, frequency: 'Monthly', fund: 'General Fund', campus: 'Downtown', nextCharge: 'Feb 1, 2026', status: 'active' },
+    { id: 2, donor: 'Michael Chen', amount: 100, frequency: 'Weekly', fund: 'Missions', campus: 'North Campus', nextCharge: 'Jan 28, 2026', status: 'active' },
+    { id: 3, donor: 'David Thompson', amount: 500, frequency: 'Monthly', fund: 'Building Fund', campus: 'Downtown', nextCharge: 'Feb 15, 2026', status: 'active' },
+    { id: 4, donor: 'Jennifer Garcia', amount: 75, frequency: 'Bi-weekly', fund: 'General Fund', campus: 'Online', nextCharge: 'Feb 3, 2026', status: 'failed' },
+    { id: 5, donor: 'Robert Taylor', amount: 2500, frequency: 'Monthly', fund: 'Building Fund', campus: 'Downtown', nextCharge: 'Feb 28, 2026', status: 'active' },
+    { id: 6, donor: 'Christopher Lee', amount: 150, frequency: 'Bi-weekly', fund: 'Youth Ministry', campus: 'North Campus', nextCharge: 'Feb 10, 2026', status: 'active' },
+  ]
+
+  const funds = [
+    { id: 1, name: 'General Fund', description: 'Tithes & Offerings', raised: 145000, goal: 200000, donations: 892, status: 'active' },
+    { id: 2, name: 'Building Fund', description: 'New sanctuary construction', raised: 89000, goal: 150000, donations: 234, status: 'active' },
+    { id: 3, name: 'Missions', description: 'Local & global missions support', raised: 32000, goal: 50000, donations: 156, status: 'active' },
+    { id: 4, name: 'Youth Ministry', description: 'Youth programs & retreats', raised: 12500, goal: 20000, donations: 89, status: 'active' },
+    { id: 5, name: 'Benevolence', description: 'Community assistance', raised: 8200, goal: null, donations: 67, status: 'active' },
+    { id: 6, name: 'Worship & Arts', description: 'Music and creative ministries', raised: 15600, goal: 25000, donations: 124, status: 'active' },
+  ]
+
+  const reports = [
+    { id: 1, name: 'Monthly Giving Summary', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Monthly' },
+    { id: 2, name: 'Donor Retention Report', type: 'Analytics', lastGenerated: 'Jan 28, 2026', frequency: 'Quarterly' },
+    { id: 3, name: 'Fund Performance', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Monthly' },
+    { id: 4, name: 'Year-End Giving Statements', type: 'Tax', lastGenerated: 'Jan 15, 2026', frequency: 'Annually' },
+    { id: 5, name: 'Recurring Donations Summary', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Weekly' },
+    { id: 6, name: 'New Donor Acquisition', type: 'Analytics', lastGenerated: 'Jan 25, 2026', frequency: 'Monthly' },
+  ]
+
+  const campuses = [
+    { id: 'downtown', name: 'Downtown', giving: 156000 },
+    { id: 'north', name: 'North Campus', giving: 89500 },
+    { id: 'online', name: 'Online', giving: 42000 },
+  ]
+
+  const services = [
+    { id: 1, name: 'Sunday 9 AM', campus: 'Downtown', giving: 45000, donations: 156 },
+    { id: 2, name: 'Sunday 11 AM', campus: 'Downtown', giving: 62000, donations: 203 },
+    { id: 3, name: 'Saturday Night', campus: 'North Campus', giving: 38000, donations: 124 },
+    { id: 4, name: 'Online Live', campus: 'Online', giving: 28000, donations: 189 },
+  ]
+
+  const chartData = [65, 45, 78, 52, 88, 72, 95, 68, 82, 76, 90, 85]
+  const months = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
+
+  const renderContent = () => {
+    switch (activeNav) {
+      case 'dashboard':
+        return (
+          <div className="dashboard-content">
+            {/* Stats Grid */}
+            <div className="stats-grid">
+              {stats.map((stat, index) => (
+                <div key={index} className="stat-card">
+                  <div className="stat-header">
+                    <span className="stat-label">{stat.label}</span>
+                    <span className={`stat-change ${stat.isPositive ? 'positive' : 'negative'}`}>
+                      {stat.isPositive ? (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      ) : (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1.83325 5.23633L4.95476 9.61547C5.35569 10.1779 6.19131 10.1779 6.59222 9.61547L8.89485 6.38498C9.29572 5.82251 10.1314 5.82252 10.5323 6.38499L13.6537 10.7641M13.6537 10.7641L14.1666 7.966M13.6537 10.7641L10.8551 10.253" stroke="#DF4646" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                      {stat.change}
+                    </span>
+                  </div>
+                  <div className="stat-value-group">
+                    <div className="stat-amount">{stat.amount}</div>
+                    <div className="stat-comparison">{stat.comparison}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Charts Row */}
+            <div className="charts-row">
+              {/* Giving Trend Chart */}
+              <div className="chart-card chart-wide">
+                <div className="chart-header">
+                  <h3>Giving Trend</h3>
+                  <div className="chart-filters">
+                    <button className="chart-filter active">12 Months</button>
+                    <button className="chart-filter">6 Months</button>
+                    <button className="chart-filter">3 Months</button>
+                  </div>
+                </div>
+                <div className="bar-chart">
+                  {chartData.map((height, i) => (
+                    <div key={i} className="bar-column">
+                      <div className="bar" style={{ height: `${height * 2}px` }}></div>
+                      <span className="bar-label">{months[i]}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Campus Breakdown */}
+              <div className="chart-card">
+                <h3>By Campus</h3>
+                <div className="campus-list">
+                  {campuses.map((campus, i) => (
+                    <div key={campus.id} className="campus-item">
+                      <div className={`campus-dot color-${i + 1}`}></div>
+                      <div className="campus-info">
+                        <div className="campus-row">
+                          <span className="campus-name">{campus.name}</span>
+                          <span className="campus-amount">${campus.giving.toLocaleString()}</span>
+                        </div>
+                        <div className="campus-progress">
+                          <div className={`campus-progress-fill color-${i + 1}`} style={{ width: `${(campus.giving / 287500) * 100}%` }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="services-section">
+                  <h4>This Week's Services</h4>
+                  <div className="services-list">
+                    {services.slice(0, 3).map((service) => (
+                      <div key={service.id} className="service-item">
+                        <div className="service-info">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="#AEB5B9" strokeWidth="1.5"/>
+                            <path d="M6.5 5.5L10.5 8L6.5 10.5V5.5Z" fill="#AEB5B9"/>
+                          </svg>
+                          <span>{service.name}</span>
+                        </div>
+                        <span className="service-amount">${Math.round(service.giving / 12).toLocaleString()}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="bottom-row">
+              {/* Recent Transactions */}
+              <div className="recent-transactions-card">
+                <div className="card-header">
+                  <h3>Recent Transactions</h3>
+                  <button className="view-all-btn" onClick={() => setActiveNav('transactions')}>
+                    View All
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 12L10 8L6 4" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div className="transactions-list">
+                  {transactions.slice(0, 5).map((tx) => (
+                    <div key={tx.id} className="transaction-item">
+                      <div className="transaction-avatar">
+                        {tx.donor === 'Anonymous' ? '?' : tx.donor.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div className="transaction-info">
+                        <span className="transaction-name">{tx.donor}</span>
+                        <span className="transaction-detail">{tx.fund} · {tx.campus}</span>
+                      </div>
+                      <span className={`source-badge ${tx.source.toLowerCase().replace('-', '')}`}>{tx.source}</span>
+                      <div className="transaction-amount-col">
+                        <span className="transaction-amount">${tx.amount.toLocaleString()}</span>
+                        <span className="transaction-date">{tx.date}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Text-to-Give */}
+              <div className="text-to-give-card">
+                <div className="card-header">
+                  <h3>Text-to-Give</h3>
+                  <button className="manage-btn">Manage</button>
+                </div>
+                <div className="text-number-box">
+                  <span className="text-number-label">Your Number</span>
+                  <span className="text-number">84321</span>
+                  <span className="text-number-hint">Text "GIVE" to donate</span>
+                </div>
+                <div className="text-stats">
+                  <div className="text-stat-row">
+                    <span>This Month</span>
+                    <span className="text-stat-value">$4,850</span>
+                  </div>
+                  <div className="text-stat-row">
+                    <span>Text Donors</span>
+                    <span className="text-stat-value">89</span>
+                  </div>
+                  <div className="text-stat-row">
+                    <span>Active Keywords</span>
+                    <span className="text-stat-value">4</span>
+                  </div>
+                </div>
+                <button className="promo-btn">Download Promo Materials</button>
+              </div>
+            </div>
+          </div>
+        )
+      case 'transactions':
+        return (
+          <div className="page-content">
+            {/* Filters */}
+            <div className="filters-bar">
+              <div className="search-input">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#7E8284" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <input type="text" placeholder="Search by donor name..." />
+              </div>
+              <select className="filter-select">
+                <option>All Funds</option>
+                <option>General Fund</option>
+                <option>Building Fund</option>
+                <option>Missions</option>
+              </select>
+              <select className="filter-select">
+                <option>All Campuses</option>
+                <option>Downtown</option>
+                <option>North Campus</option>
+                <option>Online</option>
+              </select>
+              <select className="filter-select">
+                <option>All Sources</option>
+                <option>Online</option>
+                <option>Text-to-Give</option>
+                <option>Manual</option>
+              </select>
+              <select className="filter-select">
+                <option>Last 30 Days</option>
+                <option>Last 7 Days</option>
+                <option>This Month</option>
+                <option>Last Month</option>
+              </select>
+            </div>
+
+            {/* Data Table */}
+            <div className="data-table-container">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Donor</th>
+                    <th>Amount</th>
+                    <th>Fund</th>
+                    <th>Campus / Service</th>
+                    <th>Source</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {transactions.map(tx => (
+                    <tr key={tx.id}>
+                      <td className="donor-name">{tx.donor}</td>
+                      <td className="amount-cell">${tx.amount.toLocaleString()}</td>
+                      <td>{tx.fund}</td>
+                      <td>
+                        <div className="donor-cell">
+                          <span className="donor-name">{tx.campus}</span>
+                          <span className="donor-email">{tx.service}</span>
+                        </div>
+                      </td>
+                      <td><span className={`source-badge ${tx.source.toLowerCase().replace('-', '')}`}>{tx.source}</span></td>
+                      <td><span className={`status-badge ${tx.status}`}>{tx.status.charAt(0).toUpperCase() + tx.status.slice(1)}</span></td>
+                      <td>{tx.date}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="table-pagination">
+                <span className="pagination-info">Showing 1-8 of 892 transactions</span>
+                <div className="pagination-buttons">
+                  <button className="pagination-btn">Previous</button>
+                  <button className="pagination-btn active">1</button>
+                  <button className="pagination-btn">2</button>
+                  <button className="pagination-btn">3</button>
+                  <button className="pagination-btn">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      case 'donor':
+        return (
+          <div className="page-content">
+            {/* Quick Filters */}
+            <div className="quick-filters">
+              <button className="filter-pill active">All Donors</button>
+              <button className="filter-pill">Recurring</button>
+              <button className="filter-pill">First-Time (30 days)</button>
+              <button className="filter-pill">Lapsed</button>
+              <button className="filter-pill">Top Donors</button>
+            </div>
+
+            {/* Data Table */}
+            <div className="data-table-container">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Donor</th>
+                    <th>Total (All-Time)</th>
+                    <th>This Year</th>
+                    <th>Last Gift</th>
+                    <th>Campus</th>
+                    <th>Recurring</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {donors.map(donor => (
+                    <tr key={donor.id}>
+                      <td>
+                        <div className="donor-cell">
+                          <span className="donor-name">{donor.name}</span>
+                          <span className="donor-email">{donor.email}</span>
+                        </div>
+                      </td>
+                      <td className="amount-cell">${donor.totalAllTime.toLocaleString()}</td>
+                      <td>${donor.totalThisYear.toLocaleString()}</td>
+                      <td>{donor.lastGift}</td>
+                      <td>{donor.campus}</td>
+                      <td>{donor.recurring ? <span className="recurring-active">Active</span> : <span className="recurring-none">—</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      case 'recurring':
+        return (
+          <div className="page-content">
+            {/* Metrics */}
+            <div className="metrics-grid">
+              <div className="metric-card">
+                <div className="metric-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 2V6M7 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="metric-change positive">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  +$1,200
+                </div>
+                <div className="metric-label">Monthly Recurring (MRR)</div>
+                <div className="metric-value">$18,450</div>
+              </div>
+              <div className="metric-card">
+                <div className="metric-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21M23 21V19C22.9986 17.1771 21.765 15.5857 20 15.13M16 3.13C17.7699 3.58317 19.0078 5.17852 19.0078 7.005C19.0078 8.83148 17.7699 10.4268 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="metric-change positive">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  +8
+                </div>
+                <div className="metric-label">Active Recurring</div>
+                <div className="metric-value">156</div>
+              </div>
+              <div className="metric-card">
+                <div className="metric-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 21V19C16 16.7909 14.2091 15 12 15H5C2.79086 15 1 16.7909 1 19V21M20 8V14M23 11H17M12.5 7C12.5 9.20914 10.7091 11 8.5 11C6.29086 11 4.5 9.20914 4.5 7C4.5 4.79086 6.29086 3 8.5 3C10.7091 3 12.5 4.79086 12.5 7Z" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="metric-label">New This Month</div>
+                <div className="metric-value">12</div>
+              </div>
+              <div className="metric-card">
+                <div className="metric-icon warning">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#7E8284" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="metric-label">Failed Payments</div>
+                <div className="metric-value">3</div>
+                <div className="metric-subtitle">Needs attention</div>
+              </div>
+            </div>
+
+            {/* Failed Payments Alert */}
+            <div className="alert-banner alert-error">
+              <div className="alert-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#DF4646" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div className="alert-content">
+                <p className="alert-title">3 recurring payments failed this week</p>
+                <p className="alert-text">Send payment update reminders to these donors</p>
+              </div>
+              <button className="alert-action">View & Send Reminders</button>
+            </div>
+
+            {/* Data Table */}
+            <div className="data-table-container">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Donor</th>
+                    <th>Amount</th>
+                    <th>Frequency</th>
+                    <th>Fund</th>
+                    <th>Campus</th>
+                    <th>Next Charge</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recurringDonations.map(rec => (
+                    <tr key={rec.id}>
+                      <td className="donor-name">{rec.donor}</td>
+                      <td className="amount-cell">${rec.amount.toLocaleString()}</td>
+                      <td>{rec.frequency}</td>
+                      <td>{rec.fund}</td>
+                      <td>{rec.campus}</td>
+                      <td>{rec.nextCharge}</td>
+                      <td><span className={`status-badge ${rec.status}`}>{rec.status.charAt(0).toUpperCase() + rec.status.slice(1)}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      case 'funds':
+        return (
+          <div className="funds-grid">
+            {funds.map(fund => {
+              const progress = fund.goal ? Math.round((fund.raised / fund.goal) * 100) : 0
+              return (
+                <div key={fund.id} className="fund-card">
+                  <div className="fund-header">
+                    <div className="fund-title-group">
+                      <h3>{fund.name}</h3>
+                      <span className="fund-description">{fund.description}</span>
+                    </div>
+                    <span className={`status-badge ${fund.status}`}>{fund.status.charAt(0).toUpperCase() + fund.status.slice(1)}</span>
+                  </div>
+                  <div className="fund-amount">${fund.raised.toLocaleString()}</div>
+                  <div className="fund-progress-container">
+                    {fund.goal && (
+                      <>
+                        <div className="fund-progress-bar">
+                          <div className="fund-progress-fill" style={{ width: `${progress}%` }}></div>
+                        </div>
+                        <div className="fund-progress-text">
+                          <span>{progress}% of goal</span>
+                          <span>${fund.goal.toLocaleString()}</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <div className="fund-footer">
+                    <span className="fund-donations">{fund.donations} donations</span>
+                    <span className="fund-avg">Avg: ${Math.round(fund.raised / fund.donations).toLocaleString()}</span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      case 'reports':
+        const reportCards = [
+          { title: 'Giving Summary', desc: 'Total donations by fund, campus, and source', icon: 'chart' },
+          { title: 'Donation Detail', desc: 'Every transaction with full details', icon: 'file' },
+          { title: 'Donor Summary', desc: 'All donors with giving totals', icon: 'users' },
+          { title: 'Recurring Giving', desc: 'Active recurring gifts and MRR', icon: 'refresh' },
+          { title: 'New Donor Report', desc: 'First-time donors in period', icon: 'user-plus' },
+          { title: 'Lapsed Donor Report', desc: 'Donors who stopped giving', icon: 'alert' },
+          { title: 'Campus Comparison', desc: 'Side-by-side campus giving', icon: 'building' },
+          { title: 'Service Giving', desc: 'Giving by service time', icon: 'clock' },
+          { title: 'Text-to-Give Report', desc: 'Text donations and keywords', icon: 'phone' },
+        ]
+        return (
+          <div className="page-content">
+            {/* Report Cards Grid */}
+            <div className="reports-grid">
+              {reportCards.map((report, i) => (
+                <div key={i} className="report-card">
+                  <div className="report-card-icon">
+                    {report.icon === 'chart' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.66667 13.3333V8.33333M10 13.3333V6.66667M13.3333 13.3333V10M5.83333 17.5H14.1667C15.0871 17.5 15.8333 16.7538 15.8333 15.8333V4.16667C15.8333 3.24619 15.0871 2.5 14.1667 2.5H5.83333C4.91286 2.5 4.16667 3.24619 4.16667 4.16667V15.8333C4.16667 16.7538 4.91286 17.5 5.83333 17.5Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'file' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.6667 2.5V5.83333C11.6667 6.29357 12.0398 6.66667 12.5 6.66667H15.8333M11.6667 2.5H6.66667C5.74619 2.5 5 3.24619 5 4.16667V15.8333C5 16.7538 5.74619 17.5 6.66667 17.5H13.3333C14.2538 17.5 15 16.7538 15 15.8333V5.83333M11.6667 2.5L15 5.83333M7.5 10H12.5M7.5 13.3333H10" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'users' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.1667 17.5V15.8333C14.1667 13.9924 12.6743 12.5 10.8333 12.5H4.16667C2.32572 12.5 0.833336 13.9924 0.833336 15.8333V17.5M19.1667 17.5V15.8333C19.1659 14.7915 18.6005 13.8403 17.6667 13.3333M13.3333 2.83333C14.2708 3.33833 14.8387 4.29233 14.8387 5.33333C14.8387 6.37433 14.2708 7.32833 13.3333 7.83333M10.8333 5.83333C10.8333 7.67428 9.34095 9.16667 7.5 9.16667C5.65905 9.16667 4.16667 7.67428 4.16667 5.83333C4.16667 3.99238 5.65905 2.5 7.5 2.5C9.34095 2.5 10.8333 3.99238 10.8333 5.83333Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'refresh' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.5 3.33333V7.5H13.3333M2.5 16.6667V12.5H6.66667M2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C12.5311 2.5 14.7714 3.73857 16.1025 5.65789M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C7.46891 17.5 5.22857 16.2614 3.89753 14.3421" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'user-plus' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3333 17.5V15.8333C13.3333 13.9924 11.841 12.5 10 12.5H4.16667C2.32572 12.5 0.833336 13.9924 0.833336 15.8333V17.5M16.6667 6.66667V11.6667M19.1667 9.16667H14.1667M10.4167 5.83333C10.4167 7.67428 8.92428 9.16667 7.08333 9.16667C5.24238 9.16667 3.75 7.67428 3.75 5.83333C3.75 3.99238 5.24238 2.5 7.08333 2.5C8.92428 2.5 10.4167 3.99238 10.4167 5.83333Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'alert' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6.66667V10M10 13.3333H10.0083M18.3333 10C18.3333 14.6024 14.6024 18.3333 10 18.3333C5.39763 18.3333 1.66667 14.6024 1.66667 10C1.66667 5.39763 5.39763 1.66667 10 1.66667C14.6024 1.66667 18.3333 5.39763 18.3333 10Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'building' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.33333 17.5V4.16667C3.33333 3.24619 4.07953 2.5 5 2.5H10.8333C11.7538 2.5 12.5 3.24619 12.5 4.16667V17.5M12.5 8.33333H15C15.9205 8.33333 16.6667 9.07953 16.6667 10V17.5M6.66667 5.83333H9.16667M6.66667 9.16667H9.16667M6.66667 12.5H9.16667" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'clock' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 5V10L13.3333 11.6667M18.3333 10C18.3333 14.6024 14.6024 18.3333 10 18.3333C5.39763 18.3333 1.66667 14.6024 1.66667 10C1.66667 5.39763 5.39763 1.66667 10 1.66667C14.6024 1.66667 18.3333 5.39763 18.3333 10Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                    {report.icon === 'phone' && (
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.5 2.5H7.5C6.57953 2.5 5.83333 3.24619 5.83333 4.16667V15.8333C5.83333 16.7538 6.57953 17.5 7.5 17.5H12.5C13.4205 17.5 14.1667 16.7538 14.1667 15.8333V4.16667C14.1667 3.24619 13.4205 2.5 12.5 2.5ZM10 15H10.0083" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </div>
+                  <div className="report-card-content">
+                    <h3>{report.title}</h3>
+                    <p>{report.desc}</p>
+                  </div>
+                  <div className="report-card-arrow">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.83333 14.1667L14.1667 5.83333M14.1667 5.83333H5.83333M14.1667 5.83333V14.1667" stroke="#AEB5B9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Giving Statements Section */}
+            <div className="statements-section">
+              <div className="statements-header">
+                <div className="statements-info">
+                  <h3>Giving Statements</h3>
+                  <p>Generate tax-compliant contribution statements</p>
+                </div>
+                <div className="statements-actions">
+                  <select className="filter-select">
+                    <option>2026 (Full Year)</option>
+                    <option>Q4 2026</option>
+                    <option>Q3 2026</option>
+                    <option>Custom Range</option>
+                  </select>
+                  <button className="generate-btn">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25M12.75 6L9 2.25M9 2.25L5.25 6M9 2.25V11.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Generate All Statements
+                  </button>
+                </div>
+              </div>
+              <div className="statements-note">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 6.66667V10M10 13.3333H10.0083M18.3333 10C18.3333 14.6024 14.6024 18.3333 10 18.3333C5.39763 18.3333 1.66667 14.6024 1.66667 10C1.66667 5.39763 5.39763 1.66667 10 1.66667C14.6024 1.66667 18.3333 5.39763 18.3333 10Z" stroke="#FF531D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <p>Statements include all tax-deductible donations with required IRS language. Donors can also access their statements anytime through their self-service portal.</p>
+              </div>
+            </div>
+          </div>
+        )
+      case 'settings':
+        return (
+          <div className="settings-container">
+            <div className="settings-section">
+              <h3>Organization</h3>
+              <div className="settings-group">
+                <div className="setting-item">
+                  <label>Church Name</label>
+                  <input type="text" value="One Life Center" readOnly />
+                </div>
+                <div className="setting-item">
+                  <label>Email</label>
+                  <input type="email" value="admin@onelifecenter.org" readOnly />
+                </div>
+                <div className="setting-item">
+                  <label>Phone</label>
+                  <input type="tel" value="(555) 123-4567" readOnly />
+                </div>
+              </div>
+            </div>
+            <div className="settings-section">
+              <h3>Notifications</h3>
+              <div className="settings-group">
+                <div className="setting-toggle">
+                  <span>Email notifications for new donations</span>
+                  <div className="toggle active"></div>
+                </div>
+                <div className="setting-toggle">
+                  <span>Weekly summary reports</span>
+                  <div className="toggle active"></div>
+                </div>
+                <div className="setting-toggle">
+                  <span>Failed transaction alerts</span>
+                  <div className="toggle active"></div>
+                </div>
+                <div className="setting-toggle">
+                  <span>New donor notifications</span>
+                  <div className="toggle"></div>
+                </div>
+              </div>
+            </div>
+            <div className="settings-section">
+              <h3>Payment Processing</h3>
+              <div className="settings-group">
+                <div className="setting-item">
+                  <label>Processing Fee</label>
+                  <input type="text" value="2.9% + $0.30" readOnly />
+                </div>
+                <div className="setting-item">
+                  <label>Payout Schedule</label>
+                  <input type="text" value="Weekly (Every Monday)" readOnly />
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      default:
+        return (
+          <div className="coming-soon">
+            <img src="/coming-soon.png" alt="Coming Soon" />
+            <h2>Something great is on the way</h2>
+            <p>We're building a giving platform that helps your church raise more with less fees and less hassle.</p>
+          </div>
+        )
+    }
+  }
+
   const getIcon = (iconName, isActive) => {
     const strokeColor = isActive ? 'white' : '#343637'
     const icons = {
@@ -174,39 +839,7 @@ function Dashboard() {
           </button>
         </header>
 
-        {activeNav === 'dashboard' ? (
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="stat-header">
-                  <span className="stat-label">{stat.label}</span>
-                  <span className={`stat-change ${stat.isPositive ? 'positive' : 'negative'}`}>
-                    {stat.isPositive ? (
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    ) : (
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.83325 5.23633L4.95476 9.61547C5.35569 10.1779 6.19131 10.1779 6.59222 9.61547L8.89485 6.38498C9.29572 5.82251 10.1314 5.82252 10.5323 6.38499L13.6537 10.7641M13.6537 10.7641L14.1666 7.966M13.6537 10.7641L10.8551 10.253" stroke="#DF4646" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    )}
-                    {stat.change}
-                  </span>
-                </div>
-                <div className="stat-value-group">
-                  <div className="stat-amount">{stat.amount}</div>
-                  <div className="stat-comparison">{stat.comparison}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="coming-soon">
-            <img src="/coming-soon.png" alt="Coming Soon" />
-            <h2>Something great is on the way</h2>
-            <p>We're building a giving platform that helps your church raise more with less fees and less hassle.</p>
-          </div>
-        )}
+        {renderContent()}
       </main>
     </div>
   )
