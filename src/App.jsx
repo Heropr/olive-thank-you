@@ -6,12 +6,14 @@ import FundingSource from './components/FundingSource'
 import RecurringBoost from './components/RecurringBoost'
 import Review from './components/Review'
 import ThankYou from './components/ThankYou'
+import Dashboard from './components/Dashboard'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DonationAmount />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user-info" element={<UserInfo />} />
         <Route path="/verification" element={<Verification />} />
         <Route path="/funding-source" element={<FundingSource />} />
