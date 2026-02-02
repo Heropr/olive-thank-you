@@ -1,8 +1,26 @@
 import { useState } from 'react'
 import './Dashboard.css'
+import {
+  transactions,
+  donors,
+  recurringDonations,
+  funds,
+  campuses,
+  services,
+  stats,
+  chartData,
+  getMonthLabels,
+  getRecurringMetrics,
+  getTextToGiveStats,
+  reportCards,
+  totalGiving,
+  textKeywords,
+} from '../data/mockData'
 
 function Dashboard() {
   const [activeNav, setActiveNav] = useState('dashboard')
+  const [transactionsPage, setTransactionsPage] = useState(1)
+  const transactionsPerPage = 25
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: 'home' },
@@ -14,94 +32,14 @@ function Dashboard() {
     { id: 'settings', label: 'Settings', icon: 'settings' },
   ]
 
-  const stats = [
-    {
-      label: 'This Week',
-      amount: '$47,250.32',
-      change: '+1.7%',
-      isPositive: true,
-      comparison: 'vs. $46,460.69 last week'
-    },
-    {
-      label: 'This Month',
-      amount: '$287,500',
-      change: '-3.7%',
-      isPositive: false,
-      comparison: 'vs. $298,546.21 last month'
-    },
-    {
-      label: 'Year To Date',
-      amount: '$704,381.92',
-      change: '+1.7%',
-      isPositive: true,
-      comparison: 'vs. $692,607.59 last year'
-    }
-  ]
+  // Get dynamic month labels based on current date
+  const months = getMonthLabels()
 
-  const transactions = [
-    { id: 1, donor: 'Sarah Johnson', amount: 250, fund: 'General Fund', campus: 'Downtown', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Today, 9:23 AM' },
-    { id: 2, donor: 'Michael Chen', amount: 100, fund: 'Missions', campus: 'North Campus', service: 'Sunday 11 AM', source: 'Text-to-Give', status: 'completed', date: 'Today, 9:15 AM' },
-    { id: 3, donor: 'Anonymous', amount: 500, fund: 'Building Fund', campus: 'Downtown', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Today, 9:02 AM' },
-    { id: 4, donor: 'Emily Williams', amount: 75, fund: 'Youth Ministry', campus: 'Online', service: 'Online Live', source: 'Online', status: 'completed', date: 'Yesterday, 7:45 PM' },
-    { id: 5, donor: 'David Thompson', amount: 1000, fund: 'General Fund', campus: 'Downtown', service: 'Saturday Night', source: 'Manual', status: 'pending', date: 'Yesterday, 6:30 PM' },
-    { id: 6, donor: 'Jennifer Garcia', amount: 150, fund: 'Benevolence', campus: 'North Campus', service: 'Sunday 9 AM', source: 'Online', status: 'completed', date: 'Jan 29, 2026' },
-    { id: 7, donor: 'Robert Taylor', amount: 2500, fund: 'Building Fund', campus: 'Downtown', service: 'Sunday 11 AM', source: 'Manual', status: 'completed', date: 'Jan 28, 2026' },
-    { id: 8, donor: 'Amanda Brown', amount: 100, fund: 'General Fund', campus: 'Online', service: 'Online Live', source: 'Text-to-Give', status: 'failed', date: 'Jan 28, 2026' },
-  ]
+  // Get recurring metrics
+  const recurringMetrics = getRecurringMetrics()
 
-  const donors = [
-    { id: 1, name: 'Sarah Johnson', email: 'sarah.j@email.com', totalAllTime: 12500, totalThisYear: 3200, lastGift: 'Today', recurring: true, campus: 'Downtown' },
-    { id: 2, name: 'Michael Chen', email: 'mchen@email.com', totalAllTime: 8750, totalThisYear: 2100, lastGift: 'Today', recurring: true, campus: 'North Campus' },
-    { id: 3, name: 'Emily Williams', email: 'emily.w@email.com', totalAllTime: 4200, totalThisYear: 950, lastGift: 'Yesterday', recurring: false, campus: 'Online' },
-    { id: 4, name: 'David Thompson', email: 'dthompson@email.com', totalAllTime: 25000, totalThisYear: 6000, lastGift: 'Yesterday', recurring: true, campus: 'Downtown' },
-    { id: 5, name: 'Jennifer Garcia', email: 'jgarcia@email.com', totalAllTime: 3100, totalThisYear: 800, lastGift: '3 days ago', recurring: false, campus: 'North Campus' },
-    { id: 6, name: 'Robert Taylor', email: 'rtaylor@email.com', totalAllTime: 45000, totalThisYear: 12000, lastGift: 'Jan 28, 2026', recurring: true, campus: 'Downtown' },
-    { id: 7, name: 'Amanda Brown', email: 'abrown@email.com', totalAllTime: 2100, totalThisYear: 450, lastGift: 'Jan 28, 2026', recurring: false, campus: 'Online' },
-    { id: 8, name: 'Christopher Lee', email: 'clee@email.com', totalAllTime: 6850, totalThisYear: 1800, lastGift: 'Jan 27, 2026', recurring: true, campus: 'North Campus' },
-  ]
-
-  const recurringDonations = [
-    { id: 1, donor: 'Sarah Johnson', amount: 250, frequency: 'Monthly', fund: 'General Fund', campus: 'Downtown', nextCharge: 'Feb 1, 2026', status: 'active' },
-    { id: 2, donor: 'Michael Chen', amount: 100, frequency: 'Weekly', fund: 'Missions', campus: 'North Campus', nextCharge: 'Jan 28, 2026', status: 'active' },
-    { id: 3, donor: 'David Thompson', amount: 500, frequency: 'Monthly', fund: 'Building Fund', campus: 'Downtown', nextCharge: 'Feb 15, 2026', status: 'active' },
-    { id: 4, donor: 'Jennifer Garcia', amount: 75, frequency: 'Bi-weekly', fund: 'General Fund', campus: 'Online', nextCharge: 'Feb 3, 2026', status: 'failed' },
-    { id: 5, donor: 'Robert Taylor', amount: 2500, frequency: 'Monthly', fund: 'Building Fund', campus: 'Downtown', nextCharge: 'Feb 28, 2026', status: 'active' },
-    { id: 6, donor: 'Christopher Lee', amount: 150, frequency: 'Bi-weekly', fund: 'Youth Ministry', campus: 'North Campus', nextCharge: 'Feb 10, 2026', status: 'active' },
-  ]
-
-  const funds = [
-    { id: 1, name: 'General Fund', description: 'Tithes & Offerings', raised: 145000, goal: 200000, donations: 892, status: 'active' },
-    { id: 2, name: 'Building Fund', description: 'New sanctuary construction', raised: 89000, goal: 150000, donations: 234, status: 'active' },
-    { id: 3, name: 'Missions', description: 'Local & global missions support', raised: 32000, goal: 50000, donations: 156, status: 'active' },
-    { id: 4, name: 'Youth Ministry', description: 'Youth programs & retreats', raised: 12500, goal: 20000, donations: 89, status: 'active' },
-    { id: 5, name: 'Benevolence', description: 'Community assistance', raised: 8200, goal: null, donations: 67, status: 'active' },
-    { id: 6, name: 'Worship & Arts', description: 'Music and creative ministries', raised: 15600, goal: 25000, donations: 124, status: 'active' },
-  ]
-
-  const reports = [
-    { id: 1, name: 'Monthly Giving Summary', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Monthly' },
-    { id: 2, name: 'Donor Retention Report', type: 'Analytics', lastGenerated: 'Jan 28, 2026', frequency: 'Quarterly' },
-    { id: 3, name: 'Fund Performance', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Monthly' },
-    { id: 4, name: 'Year-End Giving Statements', type: 'Tax', lastGenerated: 'Jan 15, 2026', frequency: 'Annually' },
-    { id: 5, name: 'Recurring Donations Summary', type: 'Financial', lastGenerated: 'Jan 31, 2026', frequency: 'Weekly' },
-    { id: 6, name: 'New Donor Acquisition', type: 'Analytics', lastGenerated: 'Jan 25, 2026', frequency: 'Monthly' },
-  ]
-
-  const campuses = [
-    { id: 'downtown', name: 'Downtown', giving: 156000 },
-    { id: 'north', name: 'North Campus', giving: 89500 },
-    { id: 'online', name: 'Online', giving: 42000 },
-  ]
-
-  const services = [
-    { id: 1, name: 'Sunday 9 AM', campus: 'Downtown', giving: 45000, donations: 156 },
-    { id: 2, name: 'Sunday 11 AM', campus: 'Downtown', giving: 62000, donations: 203 },
-    { id: 3, name: 'Saturday Night', campus: 'North Campus', giving: 38000, donations: 124 },
-    { id: 4, name: 'Online Live', campus: 'Online', giving: 28000, donations: 189 },
-  ]
-
-  const chartData = [65, 45, 78, 52, 88, 72, 95, 68, 82, 76, 90, 85]
-  const months = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
+  // Get text-to-give stats
+  const textToGiveStats = getTextToGiveStats()
 
   const renderContent = () => {
     switch (activeNav) {
@@ -170,7 +108,7 @@ function Dashboard() {
                           <span className="campus-amount">${campus.giving.toLocaleString()}</span>
                         </div>
                         <div className="campus-progress">
-                          <div className={`campus-progress-fill color-${i + 1}`} style={{ width: `${(campus.giving / 287500) * 100}%` }}></div>
+                          <div className={`campus-progress-fill color-${i + 1}`} style={{ width: `${(campus.giving / totalGiving) * 100}%` }}></div>
                         </div>
                       </div>
                     </div>
@@ -244,15 +182,15 @@ function Dashboard() {
                 <div className="text-stats">
                   <div className="text-stat-row">
                     <span>This Month</span>
-                    <span className="text-stat-value">$4,850</span>
+                    <span className="text-stat-value">${textToGiveStats.thisMonth.toLocaleString()}</span>
                   </div>
                   <div className="text-stat-row">
                     <span>Text Donors</span>
-                    <span className="text-stat-value">89</span>
+                    <span className="text-stat-value">{textToGiveStats.textDonors}</span>
                   </div>
                   <div className="text-stat-row">
                     <span>Active Keywords</span>
-                    <span className="text-stat-value">4</span>
+                    <span className="text-stat-value">{textToGiveStats.activeKeywords}</span>
                   </div>
                 </div>
                 <button className="promo-btn">Download Promo Materials</button>
@@ -261,8 +199,23 @@ function Dashboard() {
           </div>
         )
       case 'transactions':
+        const totalPages = Math.ceil(transactions.length / transactionsPerPage)
+        const startIndex = (transactionsPage - 1) * transactionsPerPage
+        const endIndex = startIndex + transactionsPerPage
+        const paginatedTransactions = transactions.slice(startIndex, endIndex)
+
+        // Generate page numbers to show (max 5 pages around current)
+        const getPageNumbers = () => {
+          const pages = []
+          let start = Math.max(1, transactionsPage - 2)
+          let end = Math.min(totalPages, start + 4)
+          if (end - start < 4) start = Math.max(1, end - 4)
+          for (let i = start; i <= end; i++) pages.push(i)
+          return pages
+        }
+
         return (
-          <div className="page-content">
+          <div className="page-content transactions-page">
             {/* Filters */}
             <div className="filters-bar">
               <div className="search-input">
@@ -312,7 +265,7 @@ function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.map(tx => (
+                  {paginatedTransactions.map(tx => (
                     <tr key={tx.id}>
                       <td className="donor-name">{tx.donor}</td>
                       <td className="amount-cell">${tx.amount.toLocaleString()}</td>
@@ -330,15 +283,37 @@ function Dashboard() {
                   ))}
                 </tbody>
               </table>
-              <div className="table-pagination">
-                <span className="pagination-info">Showing 1-8 of 892 transactions</span>
-                <div className="pagination-buttons">
-                  <button className="pagination-btn">Previous</button>
-                  <button className="pagination-btn active">1</button>
-                  <button className="pagination-btn">2</button>
-                  <button className="pagination-btn">3</button>
-                  <button className="pagination-btn">Next</button>
-                </div>
+            </div>
+
+            {/* Sticky Pagination */}
+            <div className="table-pagination sticky-pagination">
+              <span className="pagination-info">
+                Showing {startIndex + 1}-{Math.min(endIndex, transactions.length)} of {transactions.length.toLocaleString()} transactions
+              </span>
+              <div className="pagination-buttons">
+                <button
+                  className="pagination-btn"
+                  onClick={() => setTransactionsPage(p => Math.max(1, p - 1))}
+                  disabled={transactionsPage === 1}
+                >
+                  Previous
+                </button>
+                {getPageNumbers().map(page => (
+                  <button
+                    key={page}
+                    className={`pagination-btn ${transactionsPage === page ? 'active' : ''}`}
+                    onClick={() => setTransactionsPage(page)}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  className="pagination-btn"
+                  onClick={() => setTransactionsPage(p => Math.min(totalPages, p + 1))}
+                  disabled={transactionsPage === totalPages}
+                >
+                  Next
+                </button>
               </div>
             </div>
           </div>
@@ -400,14 +375,8 @@ function Dashboard() {
                     <path d="M17 2V6M7 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <div className="metric-change positive">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  +$1,200
-                </div>
                 <div className="metric-label">Monthly Recurring (MRR)</div>
-                <div className="metric-value">$18,450</div>
+                <div className="metric-value">${recurringMetrics.mrr.toLocaleString()}</div>
               </div>
               <div className="metric-card">
                 <div className="metric-icon">
@@ -415,14 +384,8 @@ function Dashboard() {
                     <path d="M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21M23 21V19C22.9986 17.1771 21.765 15.5857 20 15.13M16 3.13C17.7699 3.58317 19.0078 5.17852 19.0078 7.005C19.0078 8.83148 17.7699 10.4268 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <div className="metric-change positive">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.83331 10.7641L4.95482 6.38494C5.35575 5.82248 6.19137 5.8225 6.59228 6.38496L8.89491 9.6154C9.29578 10.1779 10.1314 10.1779 10.5324 9.6154L13.6537 5.23633M13.6537 5.23633L14.1666 8.0342M13.6537 5.23633L10.8552 5.74722" stroke="#1BAA6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  +8
-                </div>
                 <div className="metric-label">Active Recurring</div>
-                <div className="metric-value">156</div>
+                <div className="metric-value">{recurringMetrics.activeCount}</div>
               </div>
               <div className="metric-card">
                 <div className="metric-icon">
@@ -431,7 +394,7 @@ function Dashboard() {
                   </svg>
                 </div>
                 <div className="metric-label">New This Month</div>
-                <div className="metric-value">12</div>
+                <div className="metric-value">{recurringMetrics.newThisMonth}</div>
               </div>
               <div className="metric-card">
                 <div className="metric-icon warning">
@@ -440,12 +403,13 @@ function Dashboard() {
                   </svg>
                 </div>
                 <div className="metric-label">Failed Payments</div>
-                <div className="metric-value">3</div>
-                <div className="metric-subtitle">Needs attention</div>
+                <div className="metric-value">{recurringMetrics.failedCount}</div>
+                {recurringMetrics.failedCount > 0 && <div className="metric-subtitle">Needs attention</div>}
               </div>
             </div>
 
             {/* Failed Payments Alert */}
+            {recurringMetrics.failedCount > 0 && (
             <div className="alert-banner alert-error">
               <div className="alert-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,11 +417,12 @@ function Dashboard() {
                 </svg>
               </div>
               <div className="alert-content">
-                <p className="alert-title">3 recurring payments failed this week</p>
+                <p className="alert-title">{recurringMetrics.failedCount} recurring payment{recurringMetrics.failedCount !== 1 ? 's' : ''} failed this week</p>
                 <p className="alert-text">Send payment update reminders to these donors</p>
               </div>
               <button className="alert-action">View & Send Reminders</button>
             </div>
+            )}
 
             {/* Data Table */}
             <div className="data-table-container">
@@ -528,17 +493,6 @@ function Dashboard() {
           </div>
         )
       case 'reports':
-        const reportCards = [
-          { title: 'Giving Summary', desc: 'Total donations by fund, campus, and source', icon: 'chart' },
-          { title: 'Donation Detail', desc: 'Every transaction with full details', icon: 'file' },
-          { title: 'Donor Summary', desc: 'All donors with giving totals', icon: 'users' },
-          { title: 'Recurring Giving', desc: 'Active recurring gifts and MRR', icon: 'refresh' },
-          { title: 'New Donor Report', desc: 'First-time donors in period', icon: 'user-plus' },
-          { title: 'Lapsed Donor Report', desc: 'Donors who stopped giving', icon: 'alert' },
-          { title: 'Campus Comparison', desc: 'Side-by-side campus giving', icon: 'building' },
-          { title: 'Service Giving', desc: 'Giving by service time', icon: 'clock' },
-          { title: 'Text-to-Give Report', desc: 'Text donations and keywords', icon: 'phone' },
-        ]
         return (
           <div className="page-content">
             {/* Report Cards Grid */}

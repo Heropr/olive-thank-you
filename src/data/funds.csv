@@ -1,0 +1,6 @@
+id,name,description,goal_amount,is_tax_deductible,status
+fund_001,General Fund,Tithes & Offerings,,yes,active
+fund_002,Building Fund,New sanctuary construction,500000,yes,active
+fund_003,Missions,Local & global missions support,75000,yes,active
+fund_004,Youth Ministry,Youth programs & retreats,25000,yes,active
+fund_005,Benevolence,Community assistance fund,,yes,active

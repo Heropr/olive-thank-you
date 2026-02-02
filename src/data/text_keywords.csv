@@ -1,0 +1,5 @@
+keyword,fund_id,campus_id,status
+GIVE,fund_001,campus_001,active
+BUILDING,fund_002,campus_001,active
+MISSIONS,fund_003,campus_001,active
+YOUTH,fund_004,campus_001,active

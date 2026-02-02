@@ -1,0 +1,4 @@
+id,name,day,campus_id
+svc_001,9:00 AM,Sunday,campus_001
+svc_002,11:00 AM,Sunday,campus_001
+svc_003,1:00 PM,Sunday,campus_001

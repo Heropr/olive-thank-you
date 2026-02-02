@@ -1018,6 +1018,44 @@
   color: white;
 }
 
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn:disabled:hover {
+  border-color: var(--UI-Grey-06, #EEF4F7);
+  color: var(--UI-Grey-03, #7E8284);
+}
+
+/* Transactions Page Layout */
+.transactions-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  padding-bottom: 0 !important;
+}
+
+.transactions-page .data-table-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0;
+  border-radius: 16px 16px 0 0;
+}
+
+/* Sticky Pagination */
+.sticky-pagination {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid var(--UI-Grey-06, #EEF4F7);
+  border-top: 1px solid var(--UI-Grey-06, #EEF4F7);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  margin-top: auto;
+}
+
 /* Reports Grid */
 .reports-grid {
   display: grid;
